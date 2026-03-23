@@ -206,7 +206,7 @@ const HeroSection = () => {
                 fontFamily: "'Cinzel', serif",
                 fontSize: "13px",
                 letterSpacing: "0.15em",
-                padding: "16px 36px",
+                padding: "18px 42px",
                 background: "var(--crimson)",
                 color: "var(--cream)",
                 textDecoration: "none",

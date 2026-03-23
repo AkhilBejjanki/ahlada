@@ -53,28 +53,26 @@ const AboutSection = () => (
         </motion.div>
 
         <div style={{ marginTop: 28 }}>
-          <div style={{ overflow: "hidden" }}>
-            <motion.span
-              initial={{ y: 60, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={viewport}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              style={{ display: "block", fontFamily: "'Cormorant Garamond', serif", fontSize: 52, color: "var(--text-primary)", fontStyle: "italic" }}
-            >
-              We Don't Just Plan Events.
-            </motion.span>
-          </div>
-          <div style={{ overflow: "hidden", marginTop: 8 }}>
-            <motion.span
-              initial={{ y: 60, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={viewport}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              style={{ display: "block", fontFamily: "'Cinzel', serif", fontSize: 36, color: "var(--crimson)" }}
-            >
-              We Craft Memories That Last Forever.
-            </motion.span>
-          </div>
+          <motion.div initial="hidden" whileInView="visible" viewport={viewport}>
+            <div style={{ overflow: "hidden" }}>
+              <motion.span
+                variants={{ hidden: { y: 60, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                style={{ display: "block", fontFamily: "'Cormorant Garamond', serif", fontSize: 52, color: "var(--text-primary)", fontStyle: "italic" }}
+              >
+                We Don't Just Plan Events.
+              </motion.span>
+            </div>
+            <div style={{ overflow: "hidden", marginTop: 8 }}>
+              <motion.span
+                variants={{ hidden: { y: 60, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                style={{ display: "block", fontFamily: "'Cinzel', serif", fontSize: 36, color: "var(--crimson)" }}
+              >
+                We Craft Memories That Last Forever.
+              </motion.span>
+            </div>
+          </motion.div>
         </div>
 
         {/* Ornamental divider */}

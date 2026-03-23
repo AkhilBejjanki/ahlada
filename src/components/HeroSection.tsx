@@ -182,10 +182,10 @@ const HeroSection = () => {
             transition={{ delay: 4.7, duration: 0.6 }}
             style={{
               fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "18px",
-              lineHeight: 1.8,
+              fontSize: "19px",
+              lineHeight: 1.9,
               color: "var(--text-muted)",
-              maxWidth: 420,
+              maxWidth: 480,
             }}
           >
             From intimate family celebrations to grand corporate galas — we craft

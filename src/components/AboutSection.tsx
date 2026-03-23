@@ -127,7 +127,7 @@ const AboutSection = () => (
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={viewport}
                 transition={{ type: "spring", stiffness: 200, delay: i * 0.1 }}
-                style={{ border: "1px solid rgba(201,146,42,0.4)", background: "white", padding: "8px 16px" }}
+                style={{ border: "1px solid rgba(201,146,42,0.6)", background: "#FFFAF4", padding: "10px 20px", boxShadow: "0 2px 12px rgba(201,146,42,0.1)" }}
               >
                 <span style={{ fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.15em", color: "var(--crimson)" }}>{s}</span>
               </motion.div>

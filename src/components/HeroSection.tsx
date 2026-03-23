@@ -79,6 +79,7 @@ const HeroSection = () => {
             justifyContent: "center",
             paddingLeft: "8%",
             paddingRight: "4%",
+            paddingTop: "130px",
           }}
         >
           {/* Top label */}

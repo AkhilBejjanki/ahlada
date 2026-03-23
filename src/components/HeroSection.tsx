@@ -217,7 +217,7 @@ const HeroSection = () => {
                 const el = e.currentTarget;
                 el.style.background = "var(--gold)";
                 el.style.transform = "translateY(-2px)";
-                el.style.boxShadow = "0 8px 30px rgba(201,146,42,0.3)";
+                el.style.boxShadow = "0 8px 28px rgba(139,26,46,0.25)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget;

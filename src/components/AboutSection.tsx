@@ -182,7 +182,7 @@ const AboutSection = () => (
           </div>
 
           {/* Values row */}
-          <div style={{ marginTop: 40, display: "flex", gap: 0 }}>
+          <div style={{ marginTop: 44, display: "flex", gap: 0 }}>
             {values.map((v, i) => (
               <div
                 key={v.name}

@@ -311,8 +311,7 @@ const HeroSection = () => {
             transition={{ delay: 4.0, duration: 0.8, ease: "easeOut" }}
             style={{
               width: "100%",
-              height: "85%",
-              minHeight: "500px",
+              height: "78vh",
               background: "linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 40%, var(--gold-dark) 100%)",
               position: "relative",
               borderLeft: "2px solid var(--gold)",

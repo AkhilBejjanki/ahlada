@@ -53,22 +53,28 @@ const AboutSection = () => (
         </motion.div>
 
         <div style={{ marginTop: 28 }}>
-          {[
-            { text: "We Don't Just Plan Events.", font: "'Cormorant Garamond', serif", size: 52, color: "var(--text-primary)", italic: true, delay: 0 },
-            { text: "We Craft Memories That Last Forever.", font: "'Cinzel', serif", size: 36, color: "var(--crimson)", italic: false, delay: 0.2 },
-          ].map((line, i) => (
-            <div key={i} style={{ overflow: "hidden" }}>
-              <motion.span
-                initial={{ y: 60, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={viewport}
-                transition={{ duration: 0.8, ease: "easeOut", delay: line.delay }}
-                style={{ display: "block", fontFamily: line.font, fontSize: line.size, color: line.color, fontStyle: line.italic ? "italic" : "normal", marginTop: i > 0 ? 8 : 0 }}
-              >
-                {line.text}
-              </motion.span>
-            </div>
-          ))}
+          <div style={{ overflow: "hidden" }}>
+            <motion.span
+              initial={{ y: 60, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={viewport}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              style={{ display: "block", fontFamily: "'Cormorant Garamond', serif", fontSize: 52, color: "var(--text-primary)", fontStyle: "italic" }}
+            >
+              We Don't Just Plan Events.
+            </motion.span>
+          </div>
+          <div style={{ overflow: "hidden", marginTop: 8 }}>
+            <motion.span
+              initial={{ y: 60, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={viewport}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              style={{ display: "block", fontFamily: "'Cinzel', serif", fontSize: 36, color: "var(--crimson)" }}
+            >
+              We Craft Memories That Last Forever.
+            </motion.span>
+          </div>
         </div>
 
         {/* Ornamental divider */}

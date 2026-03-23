@@ -147,15 +147,15 @@ const AboutSection = () => (
             ABOUT ALHADA EVENTS
           </motion.span>
 
-          <div style={{ marginTop: 20 }}>
+          <div style={{ marginTop: 20, marginBottom: 28 }}>
             {["Born From Passion.", "Built On Trust."].map((line, i) => (
               <div key={i} style={{ overflow: "hidden" }}>
                 <motion.span
                   initial={{ y: 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={viewport}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.15 }}
-                  style={{ display: "block", fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: 40, color: "var(--text-primary)", lineHeight: 1.2 }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: i * 0.15 }}
+                  style={{ display: "block", fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: 40, color: "var(--text-primary)", lineHeight: 1.25 }}
                 >
                   {line}
                 </motion.span>
@@ -163,7 +163,7 @@ const AboutSection = () => (
             ))}
           </div>
 
-          <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 20 }}>
+          <div style={{ marginTop: 0, display: "flex", flexDirection: "column", gap: 20 }}>
             {[
               "Alhada Events was born with one belief — that every celebration deserves to be extraordinary. Founded in Hyderabad with deep Telugu roots, we bring together traditional elegance and modern creativity in every event we touch.",
               "From the first consultation to the final farewell, we are with you at every step. Our team of passionate designers, decorators, and coordinators treat your event as their own — because for us, this is not just work. This is love.",

@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import MarqueeTrustBar from "@/components/MarqueeTrustBar";
 import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,6 +22,7 @@ const Index = () => {
         <HeroSection />
         <MarqueeTrustBar />
         <AboutSection />
+        <ServicesSection />
       </main>
     </>
   );

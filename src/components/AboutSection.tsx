@@ -187,7 +187,8 @@ const AboutSection = () => (
               <div
                 key={v.name}
                 style={{
-                  width: "33.33%", padding: "0 24px", textAlign: "center",
+                  width: "33.33%", padding: "0 24px",
+                  display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center",
                   borderRight: i < 2 ? "1px solid rgba(201,146,42,0.3)" : "none",
                 }}
               >
@@ -196,11 +197,12 @@ const AboutSection = () => (
                   whileInView={{ scale: 1 }}
                   viewport={viewport}
                   transition={{ type: "spring", stiffness: 300, delay: i * 0.1 }}
+                  style={{ display: "flex", justifyContent: "center" }}
                 >
-                  <v.icon size={24} color="var(--gold)" style={{ marginBottom: 12, opacity: 1 }} />
+                  <v.icon size={24} color="var(--gold)" style={{ display: "block", margin: "0 auto 12px auto", opacity: 1 }} />
                 </motion.div>
-                <span style={{ fontFamily: "'Cinzel', serif", fontSize: 13, letterSpacing: "0.2em", color: "var(--crimson)", display: "block" }}>{v.name}</span>
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 13, color: "var(--text-muted)", marginTop: 4, display: "block" }}>{v.desc}</span>
+                <span style={{ fontFamily: "'Cinzel', serif", fontSize: 13, letterSpacing: "0.2em", color: "var(--crimson)", display: "block", width: "100%", textAlign: "center" }}>{v.name}</span>
+                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 13, color: "var(--text-muted)", marginTop: 4, display: "block", width: "100%", textAlign: "center" }}>{v.desc}</span>
               </div>
             ))}
           </div>

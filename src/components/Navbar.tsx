@@ -36,7 +36,7 @@ const Navbar = () => {
           alignItems: "center",
           justifyContent: "space-between",
           transition: "all 0.4s ease",
-          background: scrolled ? "rgba(250, 246, 240, 0.95)" : "transparent",
+          background: scrolled ? "rgba(250, 246, 240, 0.97)" : "transparent",
           backdropFilter: scrolled ? "blur(12px)" : "none",
           borderBottom: scrolled ? "1px solid rgba(201, 146, 42, 0.4)" : "none",
           boxShadow: scrolled ? "0 2px 40px rgba(139, 26, 46, 0.08)" : "none",

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Star, Award, Heart } from "lucide-react";
 
 const LotusShape = ({ style }: { style: React.CSSProperties }) => (
   <svg
@@ -78,6 +79,7 @@ const HeroSection = () => {
             justifyContent: "center",
             paddingLeft: "8%",
             paddingRight: "4%",
+            paddingTop: "130px",
           }}
         >
           {/* Top label */}
@@ -113,7 +115,7 @@ const HeroSection = () => {
                 style: {
                   fontFamily: "'Cormorant Garamond', serif",
                   fontStyle: "italic" as const,
-                  fontSize: "clamp(40px, 5vw, 72px)",
+                  fontSize: "clamp(44px, 5.5vw, 78px)",
                   color: "var(--text-primary)",
                   fontWeight: 400,
                   lineHeight: 1.1,
@@ -123,7 +125,7 @@ const HeroSection = () => {
                 text: "Emotions Into",
                 style: {
                   fontFamily: "'Cinzel', serif",
-                  fontSize: "clamp(36px, 4.5vw, 64px)",
+                  fontSize: "clamp(40px, 5vw, 76px)",
                   color: "var(--crimson)",
                   fontWeight: 700,
                   lineHeight: 1.1,
@@ -134,7 +136,7 @@ const HeroSection = () => {
                 style: {
                   fontFamily: "'Cormorant Garamond', serif",
                   fontStyle: "italic" as const,
-                  fontSize: "clamp(40px, 5vw, 72px)",
+                  fontSize: "clamp(44px, 5.5vw, 78px)",
                   color: "var(--text-primary)",
                   fontWeight: 400,
                   lineHeight: 1.1,
@@ -166,11 +168,11 @@ const HeroSection = () => {
               transformOrigin: "left",
             }}
           >
-            <div style={{ width: 60, height: 1, background: "var(--gold)" }} />
+            <div style={{ width: 70, height: 1, background: "var(--gold)" }} />
             <svg width="12" height="12" viewBox="0 0 12 12" fill="var(--gold)">
               <rect x="6" y="0" width="6" height="6" transform="rotate(45 6 6)" />
             </svg>
-            <div style={{ width: 60, height: 1, background: "var(--gold)" }} />
+            <div style={{ width: 70, height: 1, background: "var(--gold)" }} />
           </motion.div>
 
           {/* Subtext */}
@@ -180,10 +182,10 @@ const HeroSection = () => {
             transition={{ delay: 4.7, duration: 0.6 }}
             style={{
               fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "18px",
-              lineHeight: 1.8,
+              fontSize: "19px",
+              lineHeight: 1.9,
               color: "var(--text-muted)",
-              maxWidth: 420,
+              maxWidth: 480,
             }}
           >
             From intimate family celebrations to grand corporate galas — we craft
@@ -204,7 +206,7 @@ const HeroSection = () => {
                 fontFamily: "'Cinzel', serif",
                 fontSize: "13px",
                 letterSpacing: "0.15em",
-                padding: "16px 36px",
+                padding: "18px 42px",
                 background: "var(--crimson)",
                 color: "var(--cream)",
                 textDecoration: "none",
@@ -215,7 +217,7 @@ const HeroSection = () => {
                 const el = e.currentTarget;
                 el.style.background = "var(--gold)";
                 el.style.transform = "translateY(-2px)";
-                el.style.boxShadow = "0 8px 30px rgba(201,146,42,0.3)";
+                el.style.boxShadow = "0 8px 28px rgba(139,26,46,0.25)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget;
@@ -232,7 +234,7 @@ const HeroSection = () => {
                 fontFamily: "'Cinzel', serif",
                 fontSize: "13px",
                 letterSpacing: "0.15em",
-                padding: "16px 36px",
+                padding: "18px 42px",
                 background: "transparent",
                 color: "var(--crimson)",
                 border: "1.5px solid var(--crimson)",
@@ -269,9 +271,9 @@ const HeroSection = () => {
             }}
           >
             {[
-              { icon: "⭐", text: "500+ Events" },
-              { icon: "🏆", text: "8+ Years" },
-              { icon: "❤️", text: "100% Satisfaction" },
+              { icon: <Star size={16} color="var(--gold)" />, text: "500+ Events" },
+              { icon: <Award size={16} color="var(--gold)" />, text: "8+ Years" },
+              { icon: <Heart size={16} color="var(--gold)" />, text: "100% Satisfaction" },
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: "20px" }}>
                 {i > 0 && (
@@ -284,7 +286,7 @@ const HeroSection = () => {
                     color: "var(--text-muted)",
                   }}
                 >
-                  {item.icon} {item.text}
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>{item.icon} {item.text}</span>
                 </span>
               </div>
             ))}
@@ -297,9 +299,10 @@ const HeroSection = () => {
           style={{
             width: "45%",
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-start",
             justifyContent: "center",
-            padding: "7.5% 4% 7.5% 0",
+            padding: "0 4% 0 0",
+            marginTop: "5vh",
           }}
         >
           <motion.div
@@ -308,8 +311,7 @@ const HeroSection = () => {
             transition={{ delay: 4.0, duration: 0.8, ease: "easeOut" }}
             style={{
               width: "100%",
-              height: "85%",
-              minHeight: "500px",
+              height: "78vh",
               background: "linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 40%, var(--gold-dark) 100%)",
               position: "relative",
               borderLeft: "2px solid var(--gold)",

@@ -100,7 +100,7 @@ const AboutSection = () => (
             <div style={{ position: "absolute", top: -16, left: -16, width: "100%", height: "100%", border: "1.5px solid rgba(201,146,42,0.5)", zIndex: 0, pointerEvents: "none" }} />
             {/* Image with wipe reveal */}
             <div style={{ position: "relative", zIndex: 1, overflow: "hidden" }}>
-              <div style={{ width: "100%", aspectRatio: "4/5", background: "linear-gradient(145deg, #8B1A2E, #6B1223 40%, #8B6914)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ width: "100%", aspectRatio: "4/5", minHeight: 420, background: "linear-gradient(145deg, #8B1A2E, #6B1223 40%, #8B6914)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: 14, color: "rgba(250,246,240,0.5)" }}>[ Team / Venue Photo ]</span>
               </div>
               <motion.div

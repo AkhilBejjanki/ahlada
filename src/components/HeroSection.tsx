@@ -115,7 +115,7 @@ const HeroSection = () => {
                 style: {
                   fontFamily: "'Cormorant Garamond', serif",
                   fontStyle: "italic" as const,
-                  fontSize: "clamp(40px, 5vw, 72px)",
+                  fontSize: "clamp(44px, 5.5vw, 78px)",
                   color: "var(--text-primary)",
                   fontWeight: 400,
                   lineHeight: 1.1,
@@ -125,7 +125,7 @@ const HeroSection = () => {
                 text: "Emotions Into",
                 style: {
                   fontFamily: "'Cinzel', serif",
-                  fontSize: "clamp(36px, 4.5vw, 64px)",
+                  fontSize: "clamp(40px, 5vw, 76px)",
                   color: "var(--crimson)",
                   fontWeight: 700,
                   lineHeight: 1.1,
@@ -136,7 +136,7 @@ const HeroSection = () => {
                 style: {
                   fontFamily: "'Cormorant Garamond', serif",
                   fontStyle: "italic" as const,
-                  fontSize: "clamp(40px, 5vw, 72px)",
+                  fontSize: "clamp(44px, 5.5vw, 78px)",
                   color: "var(--text-primary)",
                   fontWeight: 400,
                   lineHeight: 1.1,

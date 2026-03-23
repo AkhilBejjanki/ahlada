@@ -121,8 +121,45 @@
   100% { top: 100%; opacity: 0; }
 }
 
-/* Slow rotation for lotus */
-@keyframes slow-rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Floating petal animation */
+@keyframes floatPetal {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(4deg); }
+}
+
+/* Image breathe animation */
+@keyframes imageBreathe {
+  0%, 100% { transform: scale(1.0); box-shadow: 0 20px 60px rgba(139,26,46,0.15); }
+  50% { transform: scale(1.03); box-shadow: 0 30px 80px rgba(139,26,46,0.25); }
+}
+
+/* Shimmer sweep for image overlay */
+@keyframes shimmerSweep {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Headline text shimmer */
+@keyframes textShimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* Hero image frame animations */
+.hero-image-frame {
+  animation: imageBreathe 7s ease-in-out infinite;
+}
+
+.hero-image-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(212,168,83,0.15) 50%, transparent 60%);
+  background-size: 200% 100%;
+  animation: shimmerSweep 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
 }

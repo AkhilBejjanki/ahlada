@@ -4,6 +4,7 @@ import Preloader from "@/components/Preloader";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import MarqueeTrustBar from "@/components/MarqueeTrustBar";
+import AboutSection from "@/components/AboutSection";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,6 +20,7 @@ const Index = () => {
       <main>
         <HeroSection />
         <MarqueeTrustBar />
+        <AboutSection />
       </main>
     </>
   );

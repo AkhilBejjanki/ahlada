@@ -39,7 +39,7 @@ const AboutSection = () => (
 
     <div style={{ position: "relative", zIndex: 1 }}>
       {/* PART A — Section Opener */}
-      <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center", paddingBottom: 80 }}>
+      <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center", paddingBottom: 80 }}>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ const AboutSection = () => (
         <div style={{ marginTop: 28 }}>
           {[
             { text: "We Don't Just Plan Events.", font: "'Cormorant Garamond', serif", size: 52, color: "var(--text-primary)", italic: true, delay: 0 },
-            { text: "We Craft Memories That Last Forever.", font: "'Cinzel', serif", size: 44, color: "var(--crimson)", italic: false, delay: 0.2 },
+            { text: "We Craft Memories That Last Forever.", font: "'Cinzel', serif", size: 36, color: "var(--crimson)", italic: false, delay: 0.2 },
           ].map((line, i) => (
             <div key={i} style={{ overflow: "hidden" }}>
               <motion.span
@@ -100,7 +100,7 @@ const AboutSection = () => (
             <div style={{ position: "absolute", top: -16, left: -16, width: "100%", height: "100%", border: "1.5px solid rgba(201,146,42,0.5)", zIndex: 0, pointerEvents: "none" }} />
             {/* Image with wipe reveal */}
             <div style={{ position: "relative", zIndex: 1, overflow: "hidden" }}>
-              <div style={{ width: "100%", aspectRatio: "4/5", background: "linear-gradient(145deg, #8B1A2E, #6B1223 40%, #8B6914)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ width: "100%", aspectRatio: "4/5", minHeight: 420, background: "linear-gradient(145deg, #8B1A2E, #6B1223 40%, #8B6914)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: 14, color: "rgba(250,246,240,0.5)" }}>[ Team / Venue Photo ]</span>
               </div>
               <motion.div
@@ -127,7 +127,7 @@ const AboutSection = () => (
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={viewport}
                 transition={{ type: "spring", stiffness: 200, delay: i * 0.1 }}
-                style={{ border: "1px solid rgba(201,146,42,0.4)", background: "white", padding: "8px 16px" }}
+                style={{ border: "1px solid rgba(201,146,42,0.6)", background: "#FFFAF4", padding: "10px 20px", boxShadow: "0 2px 12px rgba(201,146,42,0.1)" }}
               >
                 <span style={{ fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.15em", color: "var(--crimson)" }}>{s}</span>
               </motion.div>
@@ -147,15 +147,15 @@ const AboutSection = () => (
             ABOUT ALHADA EVENTS
           </motion.span>
 
-          <div style={{ marginTop: 20 }}>
+          <div style={{ marginTop: 20, marginBottom: 28 }}>
             {["Born From Passion.", "Built On Trust."].map((line, i) => (
               <div key={i} style={{ overflow: "hidden" }}>
                 <motion.span
                   initial={{ y: 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={viewport}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.15 }}
-                  style={{ display: "block", fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: 40, color: "var(--text-primary)", lineHeight: 1.2 }}
+                  transition={{ duration: 0.7, ease: "easeOut", delay: i * 0.15 }}
+                  style={{ display: "block", fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: 40, color: "var(--text-primary)", lineHeight: 1.25 }}
                 >
                   {line}
                 </motion.span>
@@ -163,7 +163,7 @@ const AboutSection = () => (
             ))}
           </div>
 
-          <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 20 }}>
+          <div style={{ marginTop: 0, display: "flex", flexDirection: "column", gap: 20 }}>
             {[
               "Alhada Events was born with one belief — that every celebration deserves to be extraordinary. Founded in Hyderabad with deep Telugu roots, we bring together traditional elegance and modern creativity in every event we touch.",
               "From the first consultation to the final farewell, we are with you at every step. Our team of passionate designers, decorators, and coordinators treat your event as their own — because for us, this is not just work. This is love.",
@@ -182,7 +182,7 @@ const AboutSection = () => (
           </div>
 
           {/* Values row */}
-          <div style={{ marginTop: 40, display: "flex", gap: 0 }}>
+          <div style={{ marginTop: 44, display: "flex", gap: 0 }}>
             {values.map((v, i) => (
               <div
                 key={v.name}
@@ -197,9 +197,9 @@ const AboutSection = () => (
                   viewport={viewport}
                   transition={{ type: "spring", stiffness: 300, delay: i * 0.1 }}
                 >
-                  <v.icon size={20} color="var(--gold)" style={{ marginBottom: 10 }} />
+                  <v.icon size={24} color="var(--gold)" style={{ marginBottom: 12, opacity: 1 }} />
                 </motion.div>
-                <span style={{ fontFamily: "'Cinzel', serif", fontSize: 12, letterSpacing: "0.2em", color: "var(--crimson)", display: "block" }}>{v.name}</span>
+                <span style={{ fontFamily: "'Cinzel', serif", fontSize: 13, letterSpacing: "0.2em", color: "var(--crimson)", display: "block" }}>{v.name}</span>
                 <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 13, color: "var(--text-muted)", marginTop: 4, display: "block" }}>{v.desc}</span>
               </div>
             ))}

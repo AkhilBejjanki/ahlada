@@ -55,7 +55,7 @@ const AboutSection = () => (
         <div style={{ marginTop: 28 }}>
           {[
             { text: "We Don't Just Plan Events.", font: "'Cormorant Garamond', serif", size: 52, color: "var(--text-primary)", italic: true, delay: 0 },
-            { text: "We Craft Memories That Last Forever.", font: "'Cinzel', serif", size: 44, color: "var(--crimson)", italic: false, delay: 0.2 },
+            { text: "We Craft Memories That Last Forever.", font: "'Cinzel', serif", size: 36, color: "var(--crimson)", italic: false, delay: 0.2 },
           ].map((line, i) => (
             <div key={i} style={{ overflow: "hidden" }}>
               <motion.span

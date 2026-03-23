@@ -39,7 +39,7 @@ const AboutSection = () => (
 
     <div style={{ position: "relative", zIndex: 1 }}>
       {/* PART A — Section Opener */}
-      <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center", paddingBottom: 80 }}>
+      <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center", paddingBottom: 80 }}>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}

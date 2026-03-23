@@ -271,9 +271,9 @@ const HeroSection = () => {
             }}
           >
             {[
-              { icon: "⭐", text: "500+ Events" },
-              { icon: "🏆", text: "8+ Years" },
-              { icon: "❤️", text: "100% Satisfaction" },
+              { icon: <Star size={16} color="var(--gold)" />, text: "500+ Events" },
+              { icon: <Award size={16} color="var(--gold)" />, text: "8+ Years" },
+              { icon: <Heart size={16} color="var(--gold)" />, text: "100% Satisfaction" },
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: "20px" }}>
                 {i > 0 && (

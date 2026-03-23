@@ -168,11 +168,11 @@ const HeroSection = () => {
               transformOrigin: "left",
             }}
           >
-            <div style={{ width: 60, height: 1, background: "var(--gold)" }} />
+            <div style={{ width: 70, height: 1, background: "var(--gold)" }} />
             <svg width="12" height="12" viewBox="0 0 12 12" fill="var(--gold)">
               <rect x="6" y="0" width="6" height="6" transform="rotate(45 6 6)" />
             </svg>
-            <div style={{ width: 60, height: 1, background: "var(--gold)" }} />
+            <div style={{ width: 70, height: 1, background: "var(--gold)" }} />
           </motion.div>
 
           {/* Subtext */}

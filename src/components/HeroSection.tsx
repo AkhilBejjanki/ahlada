@@ -286,7 +286,7 @@ const HeroSection = () => {
                     color: "var(--text-muted)",
                   }}
                 >
-                  {item.icon} {item.text}
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>{item.icon} {item.text}</span>
                 </span>
               </div>
             ))}

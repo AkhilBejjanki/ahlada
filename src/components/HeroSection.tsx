@@ -168,7 +168,7 @@ const HeroSection = () => {
                   line.isShimmer
                     ? {
                         ...line.style,
-                        background: "linear-gradient(90deg, #8B1A2E 30%, #C9922A 50%, #8B1A2E 70%)",
+                        background: "linear-gradient(90deg, #8B1A2E 40%, #C9922A 55%, #8B1A2E 70%)",
                         backgroundSize: "200% auto",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",

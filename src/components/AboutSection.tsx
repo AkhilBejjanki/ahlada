@@ -199,7 +199,7 @@ const AboutSection = () => (
                 >
                   <v.icon size={24} color="var(--gold)" style={{ marginBottom: 12, opacity: 1 }} />
                 </motion.div>
-                <span style={{ fontFamily: "'Cinzel', serif", fontSize: 12, letterSpacing: "0.2em", color: "var(--crimson)", display: "block" }}>{v.name}</span>
+                <span style={{ fontFamily: "'Cinzel', serif", fontSize: 13, letterSpacing: "0.2em", color: "var(--crimson)", display: "block" }}>{v.name}</span>
                 <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 13, color: "var(--text-muted)", marginTop: 4, display: "block" }}>{v.desc}</span>
               </div>
             ))}

@@ -299,9 +299,10 @@ const HeroSection = () => {
           style={{
             width: "45%",
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-start",
             justifyContent: "center",
-            padding: "7.5% 4% 7.5% 0",
+            padding: "0 4% 0 0",
+            marginTop: "5vh",
           }}
         >
           <motion.div

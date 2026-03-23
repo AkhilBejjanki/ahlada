@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Star, Award, Heart } from "lucide-react";
 
 const LotusShape = ({ style }: { style: React.CSSProperties }) => (
   <svg

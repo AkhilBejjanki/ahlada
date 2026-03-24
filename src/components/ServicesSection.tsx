@@ -211,9 +211,9 @@ const ProcessStrip = () => (
               style={{ textAlign: "center", padding: "0 16px", position: "relative" }}
             >
               <div style={{
-                position: "absolute", top: -8, left: "50%", transform: "translateX(-50%)",
-                fontFamily: "'Cinzel', serif", fontSize: 64, color: "rgba(250,246,240,0.10)",
-                lineHeight: 1, userSelect: "none", pointerEvents: "none", zIndex: 0, whiteSpace: "nowrap",
+                fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.2em",
+                color: "rgba(250,246,240,0.35)", marginBottom: 8,
+                userSelect: "none", pointerEvents: "none", position: "relative", zIndex: 1,
               }}>{step.num}</div>
               <div style={{
                 width: 52, height: 52, position: "relative", zIndex: 2,

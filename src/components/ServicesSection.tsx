@@ -441,9 +441,8 @@ const ScrollytellingServices = () => {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "center",
-                    transform: i === activeIndex ? "scale(1.0)" : "scale(1.08)",
-                    transition: "transform 0.8s ease, opacity 0.6s ease",
+                    objectPosition: "60% center",
+                    transform: "scale(1.0)",
                   }}
                 />
               </div>
@@ -457,10 +456,10 @@ const ScrollytellingServices = () => {
                 zIndex: 3,
                 pointerEvents: "none",
                 background: [
-                  "linear-gradient(to right, #FAF6F0 0%, #FAF6F0 3%, rgba(250,246,240,0.96) 7%, rgba(250,246,240,0.82) 13%, rgba(250,246,240,0.55) 22%, rgba(250,246,240,0.25) 32%, rgba(250,246,240,0.08) 42%, transparent 52%)",
-                  "linear-gradient(to bottom, rgba(250,246,240,0.45) 0%, transparent 16%)",
-                  "linear-gradient(to top, rgba(250,246,240,0.35) 0%, transparent 20%)",
-                  "linear-gradient(to left, rgba(250,246,240,0.25) 0%, transparent 14%)",
+                  "linear-gradient(to right, #FAF6F0 0%, #FAF6F0 2%, rgba(250,246,240,0.90) 5%, rgba(250,246,240,0.60) 9%, rgba(250,246,240,0.25) 14%, rgba(250,246,240,0.06) 19%, transparent 24%)",
+                  "linear-gradient(to bottom, rgba(250,246,240,0.30) 0%, transparent 12%)",
+                  "linear-gradient(to top, rgba(250,246,240,0.25) 0%, transparent 15%)",
+                  "linear-gradient(to left, rgba(250,246,240,0.20) 0%, transparent 10%)",
                 ].join(", "),
               }}
             />

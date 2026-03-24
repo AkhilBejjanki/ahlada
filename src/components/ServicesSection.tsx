@@ -8,14 +8,14 @@ import {
 const viewport = { once: true, margin: "-80px" };
 
 const services = [
-  { id: 1, index: "01", icon: Cake, name: "Birthday Parties", desc: "We create joyful, vibrant setups that make every birthday feel like the most magical day of the year.", image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&q=85", tag: "Celebrations" },
-  { id: 2, index: "02", icon: Gem, name: "Wedding Planning", desc: "From the sacred mandap to the last dance — we orchestrate every detail of your most cherished day.", image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=85", tag: "Weddings" },
-  { id: 3, index: "03", icon: Heart, name: "Engagement Ceremonies", desc: "Rings, roses, and perfect moments. We design engagements that feel as extraordinary as your love story.", image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&q=85", tag: "Engagements" },
-  { id: 4, index: "04", icon: Star, name: "Baby Showers", desc: "Soft, whimsical, and full of wonder — we celebrate the arrival of new life with warmth and beauty.", image: "https://images.unsplash.com/photo-1544126592-807ade215a0b?w=1200&q=85", tag: "New Beginnings" },
-  { id: 5, index: "05", icon: Sparkles, name: "Theme Parties", desc: "From concept to creation, we bring any theme alive with stunning decor, lighting, and immersive design.", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=85", tag: "Theme Events" },
-  { id: 6, index: "06", icon: Home, name: "Housewarming Events", desc: "Bless your new home with warmth, beauty, and the joy of people you love — we handle every detail.", image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85", tag: "Housewarmings" },
-  { id: 7, index: "07", icon: Crown, name: "Anniversary Celebrations", desc: "Celebrating years of love deserves nothing ordinary. We craft anniversary moments worth reliving forever.", image: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1200&q=85", tag: "Anniversaries" },
-  { id: 8, index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur meets modern aesthetics. We transform any space into a festive wonderland.", image: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=1200&q=85", tag: "Festive" },
+  { id: 1, index: "01", icon: Cake, name: "Birthday Parties", desc: "We create joyful, vibrant setups that make every birthday feel like the most magical day of the year.", image: "/images/birthday.jpg", tag: "Celebrations" },
+  { id: 2, index: "02", icon: Gem, name: "Wedding Planning", desc: "From the sacred mandap to the last dance — we orchestrate every detail of your most cherished day.", image: "/images/wedding.jpg", tag: "Weddings" },
+  { id: 3, index: "03", icon: Heart, name: "Engagement Ceremonies", desc: "Rings, roses, and perfect moments. We design engagements that feel as extraordinary as your love story.", image: "/images/engagement.jpg", tag: "Engagements" },
+  { id: 4, index: "04", icon: Star, name: "Baby Showers", desc: "Soft, whimsical, and full of wonder — we celebrate the arrival of new life with warmth and beauty.", image: "/images/babyshower.jpg", tag: "New Beginnings" },
+  { id: 5, index: "05", icon: Sparkles, name: "Theme Parties", desc: "From concept to creation, we bring any theme alive with stunning decor, lighting, and immersive design.", image: "/images/theme.jpg", tag: "Theme Events" },
+  { id: 6, index: "06", icon: Home, name: "Housewarming Events", desc: "Bless your new home with warmth, beauty, and the joy of people you love — we handle every detail.", image: "/images/housewarming.jpg", tag: "Housewarmings" },
+  { id: 7, index: "07", icon: Crown, name: "Anniversary Celebrations", desc: "Celebrating years of love deserves nothing ordinary. We craft anniversary moments worth reliving forever.", image: "/images/anniversary.jpg", tag: "Anniversaries" },
+  { id: 8, index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur meets modern aesthetics. We transform any space into a festive wonderland.", image: "/images/festive.jpg", tag: "Festive" },
 ];
 
 const processSteps = [

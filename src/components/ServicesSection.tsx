@@ -284,7 +284,7 @@ const ScrollytellingServices = () => {
             {/* Left gradient bleed */}
             <div style={{
               position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none",
-              background: "linear-gradient(to right, var(--cream) 0%, var(--cream) 4%, rgba(250,246,240,0.92) 12%, rgba(250,246,240,0.6) 22%, rgba(250,246,240,0.2) 35%, transparent 50%)",
+              background: "linear-gradient(to right, var(--cream) 0%, var(--cream) 3%, rgba(250,246,240,0.88) 10%, rgba(250,246,240,0.5) 18%, rgba(250,246,240,0.15) 28%, transparent 42%)",
             }} />
 
             {/* Top fade */}

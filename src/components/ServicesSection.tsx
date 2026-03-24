@@ -251,11 +251,11 @@ const ScrollytellingServices = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  style={{ position: "absolute", bottom: "10%", left: "7%", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 6 }}
+                  style={{ position: "absolute", bottom: "8%", left: "7%", zIndex: 10, display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 6 }}
                 >
                   <span style={{
                     fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: "0.2em",
-                    color: "rgba(139,26,46,0.4)",
+                    color: "rgba(139,26,46,0.5)",
                   }}>Scroll to explore all services</span>
                   <div style={{
                     width: 1, height: 24, marginLeft: 4,

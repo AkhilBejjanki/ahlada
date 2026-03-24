@@ -449,56 +449,19 @@ const ScrollytellingServices = () => {
               </div>
             ))}
 
-            {/* Left gradient bleed */}
+            {/* Vignette overlay */}
             <div
               style={{
                 position: "absolute",
                 inset: 0,
-                zIndex: 2,
+                zIndex: 3,
                 pointerEvents: "none",
-                background: "linear-gradient(to right, var(--cream) 0%, rgba(250,246,240,0.4) 12%, transparent 28%)",
-              }}
-            />
-
-            {/* Bottom gradient */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: "40%",
-                zIndex: 2,
-                background: "linear-gradient(to top, rgba(10,0,0,0.45) 0%, transparent 100%)",
-                pointerEvents: "none",
-              }}
-            />
-
-            {/* Gold corner frames */}
-            <div
-              style={{
-                position: "absolute",
-                top: 32,
-                right: 32,
-                width: 56,
-                height: 56,
-                borderTop: "1.5px solid rgba(201,146,42,0.7)",
-                borderRight: "1.5px solid rgba(201,146,42,0.7)",
-                zIndex: 6,
-                pointerEvents: "none",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                bottom: 32,
-                left: 0,
-                width: 56,
-                height: 56,
-                borderBottom: "1.5px solid rgba(201,146,42,0.7)",
-                borderLeft: "1.5px solid rgba(201,146,42,0.7)",
-                zIndex: 6,
-                pointerEvents: "none",
+                background: [
+                  "linear-gradient(to right, #FAF6F0 0%, #FAF6F0 3%, rgba(250,246,240,0.96) 7%, rgba(250,246,240,0.82) 13%, rgba(250,246,240,0.55) 22%, rgba(250,246,240,0.25) 32%, rgba(250,246,240,0.08) 42%, transparent 52%)",
+                  "linear-gradient(to bottom, rgba(250,246,240,0.45) 0%, transparent 16%)",
+                  "linear-gradient(to top, rgba(250,246,240,0.35) 0%, transparent 20%)",
+                  "linear-gradient(to left, rgba(250,246,240,0.25) 0%, transparent 14%)",
+                ].join(", "),
               }}
             />
 

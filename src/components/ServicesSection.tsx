@@ -15,7 +15,7 @@ const services = [
   { id: 5, index: "05", icon: Sparkles, name: "Theme Parties", desc: "From concept to creation, we bring any theme alive with stunning decor, lighting, and immersive design.", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=85", tag: "Theme Events" },
   { id: 6, index: "06", icon: Home, name: "Housewarming Events", desc: "Bless your new home with warmth, beauty, and the joy of people you love — we handle every detail.", image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85", tag: "Housewarmings" },
   { id: 7, index: "07", icon: Crown, name: "Anniversary Celebrations", desc: "Celebrating years of love deserves nothing ordinary. We craft anniversary moments worth reliving forever.", image: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1200&q=85", tag: "Anniversaries" },
-  { id: 8, index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur meets modern aesthetics. We transform any space into a festive wonderland.", image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1200&q=85", tag: "Festive" },
+  { id: 8, index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur meets modern aesthetics. We transform any space into a festive wonderland.", image: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=1200&q=85", tag: "Festive" },
 ];
 
 const processSteps = [

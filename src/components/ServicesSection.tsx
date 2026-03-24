@@ -73,13 +73,15 @@ const ProgressIndicator = ({ activeIndex, visible }: { activeIndex: number; visi
         <div key={s.id} style={{ display: "flex", alignItems: "center", gap: 8, justifyContent: "flex-end" }}>
           <span style={{
             fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: "0.1em",
-            color: i === activeIndex ? "var(--gold)" : "transparent",
-            transition: "color 0.3s ease",
+            color: "var(--gold)",
+            opacity: i === activeIndex ? 1 : 0,
+            transition: "opacity 0.3s ease",
           }}>{s.index}</span>
           <div style={{
-            height: i === activeIndex ? 32 : 16,
-            width: 2.5,
-            background: i === activeIndex ? "var(--gold)" : "rgba(201,146,42,0.25)",
+            height: i === activeIndex ? 40 : 16,
+            width: i === activeIndex ? 4 : 2,
+            background: i === activeIndex ? "var(--gold)" : "rgba(201,146,42,0.3)",
+            opacity: i === activeIndex ? 1 : 1,
             transition: "all 0.4s ease",
             borderRadius: 2,
           }} />

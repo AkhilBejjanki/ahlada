@@ -78,7 +78,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         {/* Layer 2: Dark crimson hover overlay */}
         <div style={{
           position: "absolute", inset: 0, zIndex: 2,
-          background: "linear-gradient(to top, rgba(89,10,18,0.92) 0%, rgba(89,10,18,0.75) 50%, rgba(89,10,18,0.55) 100%)",
+          background: "linear-gradient(to top, rgba(89,10,18,0.88) 0%, rgba(89,10,18,0.70) 50%, rgba(89,10,18,0.50) 100%)",
           opacity: isHovered ? 1 : 0,
           transition: "opacity 0.45s ease",
         }} />

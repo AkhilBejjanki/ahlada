@@ -210,10 +210,11 @@ const ProcessStrip = () => (
               transition={{ duration: 0.6, delay: i * 0.12 }}
               style={{ textAlign: "center", padding: "0 16px", position: "relative" }}
             >
-              <span style={{
-                fontFamily: "'Cinzel', serif", fontSize: 42, color: "rgba(250,246,240,0.13)",
-                lineHeight: 1, position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)",
-              }}>{step.num}</span>
+              <div style={{
+                position: "absolute", top: -8, left: "50%", transform: "translateX(-50%)",
+                fontFamily: "'Cinzel', serif", fontSize: 64, color: "rgba(250,246,240,0.10)",
+                lineHeight: 1, userSelect: "none", pointerEvents: "none", zIndex: 0, whiteSpace: "nowrap",
+              }}>{step.num}</div>
               <div style={{
                 width: 52, height: 52, position: "relative", zIndex: 2,
                 border: "1px solid rgba(201,146,42,0.4)", borderRadius: "50%",

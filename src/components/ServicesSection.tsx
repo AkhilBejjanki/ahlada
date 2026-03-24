@@ -115,17 +115,6 @@ const ScrollytellingServices = () => {
     });
   }, []);
 
-  // IntersectionObserver for progress indicator visibility
-  useEffect(() => {
-    const el = outerRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { threshold: 0.05 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   const current = services[activeIndex];
   const CurrentIcon = current.icon;

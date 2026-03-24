@@ -122,9 +122,10 @@ const ScrollytellingServices = () => {
   return (
     <>
       <div ref={outerRef} style={{ position: "relative", height: "calc(100vh * 10)" }}>
-        <div style={{
+         <div style={{
           position: "sticky", top: 0, height: "100vh", overflow: "hidden",
           display: "grid", gridTemplateColumns: "42% 58%",
+          paddingTop: 80,
         }}>
           {/* ━━━ LEFT PANEL ━━━ */}
           <div style={{

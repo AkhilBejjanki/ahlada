@@ -235,6 +235,7 @@ const ProcessStrip = () => (
               <div key={`conn-${i}`} style={{
                 display: "flex", alignItems: "center", justifyContent: "center",
                 position: "relative", padding: "0 8px",
+                marginTop: 28, alignSelf: "flex-start",
               }}>
                 <div style={{
                   width: 80, height: 1,

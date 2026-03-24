@@ -309,14 +309,14 @@ const ScrollytellingServices = () => {
               width: 56, height: 56,
               borderTop: "1.5px solid rgba(201,146,42,0.7)",
               borderRight: "1.5px solid rgba(201,146,42,0.7)",
-              zIndex: 3, pointerEvents: "none",
+              zIndex: 6, pointerEvents: "none",
             }} />
             <div style={{
               position: "absolute", bottom: 32, left: 0,
               width: 56, height: 56,
               borderBottom: "1.5px solid rgba(201,146,42,0.7)",
               borderLeft: "1.5px solid rgba(201,146,42,0.7)",
-              zIndex: 3, pointerEvents: "none",
+              zIndex: 6, pointerEvents: "none",
             }} />
 
             {/* Service tag pill */}

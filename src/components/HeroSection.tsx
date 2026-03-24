@@ -55,14 +55,16 @@ const HeroSection = () => {
         display: "grid",
         gridTemplateColumns: "54% 46%",
         alignItems: "center",
-        paddingTop: "80px",
+        paddingTop: "30px",
       }}
     >
       {/* LAYER 1 — Floating Lotus Petals */}
       {PETALS.map((p, i) => (
         <div
           key={i}
-          ref={(el) => { if (el) petalsRef.current[i] = el; }}
+          ref={(el) => {
+            if (el) petalsRef.current[i] = el;
+          }}
           style={{
             position: "absolute",
             width: p.size,
@@ -216,8 +218,8 @@ const HeroSection = () => {
             maxWidth: 480,
           }}
         >
-          From intimate family celebrations to grand corporate galas — we craft
-          every detail with Telugu heart and timeless elegance.
+          From intimate family celebrations to grand corporate galas — we craft every detail with Telugu heart and
+          timeless elegance.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -304,9 +306,7 @@ const HeroSection = () => {
             { icon: <Heart size={16} color="var(--gold)" />, text: "100% Satisfaction" },
           ].map((item, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-              {i > 0 && (
-                <div style={{ width: 1, height: 18, background: "rgba(201,146,42,0.4)" }} />
-              )}
+              {i > 0 && <div style={{ width: 1, height: 18, background: "rgba(201,146,42,0.4)" }} />}
               <span
                 style={{
                   fontFamily: "'Cormorant Garamond', serif",
@@ -314,7 +314,9 @@ const HeroSection = () => {
                   color: "var(--text-muted)",
                 }}
               >
-                <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>{item.icon} {item.text}</span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                  {item.icon} {item.text}
+                </span>
               </span>
             </div>
           ))}

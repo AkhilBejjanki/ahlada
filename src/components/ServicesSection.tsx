@@ -214,9 +214,11 @@ const ScrollytellingServices = () => {
             position: "sticky",
             top: 0,
             height: "100vh",
+            width: "100%",
             overflow: "hidden",
-            display: "grid",
-            gridTemplateColumns: "42% 58%",
+            display: "flex",
+            border: "none",
+            boxShadow: "none",
           }}
         >
           {/* ━━━ LEFT PANEL ━━━ */}

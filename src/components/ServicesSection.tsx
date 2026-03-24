@@ -284,40 +284,15 @@ const ScrollytellingServices = () => {
               </div>
             ))}
 
-            {/* Left gradient bleed */}
+            {/* Single 4-sided vignette overlay */}
             <div style={{
-              position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none",
-              background: "linear-gradient(to right, #FAF6F0 0%, #FAF6F0 2%, rgba(250,246,240,0.6) 8%, rgba(250,246,240,0.25) 16%, rgba(250,246,240,0.05) 24%, transparent 34%)",
-            }} />
-
-            {/* Top fade */}
-            <div style={{
-              position: "absolute", top: 0, left: 0, right: 0, height: "8%", zIndex: 3,
-              background: "linear-gradient(to bottom, rgba(250,246,240,0.2) 0%, transparent 100%)",
-              pointerEvents: "none",
-            }} />
-
-            {/* Bottom fade */}
-            <div style={{
-              position: "absolute", bottom: 0, left: 0, right: 0, height: "12%", zIndex: 3,
-              background: "linear-gradient(to top, rgba(5,0,0,0.25) 0%, transparent 100%)",
-              pointerEvents: "none",
-            }} />
-
-            {/* Gold corner frames */}
-            <div style={{
-              position: "absolute", top: 32, right: 32,
-              width: 56, height: 56,
-              borderTop: "1.5px solid rgba(201,146,42,0.7)",
-              borderRight: "1.5px solid rgba(201,146,42,0.7)",
-              zIndex: 6, pointerEvents: "none",
-            }} />
-            <div style={{
-              position: "absolute", bottom: 32, left: 0,
-              width: 56, height: 56,
-              borderBottom: "1.5px solid rgba(201,146,42,0.7)",
-              borderLeft: "1.5px solid rgba(201,146,42,0.7)",
-              zIndex: 6, pointerEvents: "none",
+              position: "absolute", inset: 0, zIndex: 3, pointerEvents: "none",
+              background: [
+                "linear-gradient(to right, rgba(250,246,240,0.92) 0%, rgba(250,246,240,0.6) 8%, rgba(250,246,240,0.15) 20%, transparent 35%)",
+                "linear-gradient(to bottom, rgba(250,246,240,0.5) 0%, transparent 18%)",
+                "linear-gradient(to top, rgba(250,246,240,0.4) 0%, transparent 22%)",
+                "linear-gradient(to left, rgba(250,246,240,0.3) 0%, transparent 15%)",
+              ].join(", "),
             }} />
 
             {/* Service tag pill */}

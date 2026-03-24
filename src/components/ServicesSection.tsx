@@ -8,13 +8,13 @@ import {
 const viewport = { once: true, margin: "-80px" };
 
 const services = [
-  { id: 1, index: "01", icon: Cake, name: "Birthday Parties", desc: "We create joyful, vibrant setups that make every birthday feel like the most magical day of the year.", image: "/images/birthday.jpg", tag: "Celebrations", objectPos: "center center" },
+  { id: 1, index: "01", icon: Cake, name: "Birthday Parties", desc: "We create joyful, vibrant setups that make every birthday feel like the most magical day of the year.", image: "/images/birthday.jpg", tag: "Birthdays", objectPos: "center 35%" },
   { id: 2, index: "02", icon: Gem, name: "Wedding Planning", desc: "From the sacred mandap to the last dance — we orchestrate every detail of your most cherished day.", image: "/images/wedding.jpg", tag: "Weddings", objectPos: "center 20%" },
   { id: 3, index: "03", icon: Heart, name: "Engagement Ceremonies", desc: "Rings, roses, and perfect moments. We design engagements that feel as extraordinary as your love story.", image: "/images/engagement.jpg", tag: "Engagements", objectPos: "center center" },
   { id: 4, index: "04", icon: Star, name: "Baby Showers", desc: "Soft, whimsical, and full of wonder — we celebrate the arrival of new life with warmth and beauty.", image: "/images/babyshower.jpg", tag: "New Beginnings", objectPos: "center 15%" },
   { id: 5, index: "05", icon: Sparkles, name: "Theme Parties", desc: "From concept to creation, we bring any theme alive with stunning decor, lighting, and immersive design.", image: "/images/theme.jpg", tag: "Theme Events", objectPos: "center center" },
-  { id: 6, index: "06", icon: Home, name: "Housewarming Events", desc: "Bless your new home with warmth, beauty, and the joy of people you love — we handle every detail.", image: "/images/housewarming.jpg", tag: "Housewarmings", objectPos: "center center" },
-  { id: 7, index: "07", icon: Crown, name: "Anniversary Celebrations", desc: "Celebrating years of love deserves nothing ordinary. We craft anniversary moments worth reliving forever.", image: "/images/anniversary.jpg", tag: "Anniversaries", objectPos: "center 30%" },
+  { id: 6, index: "06", icon: Home, name: "Housewarming Events", desc: "Bless your new home with warmth, beauty, and the joy of people you love — we handle every detail.", image: "/images/housewarming.jpg", tag: "Housewarmings", objectPos: "center 40%" },
+  { id: 7, index: "07", icon: Crown, name: "Anniversary Celebrations", desc: "Celebrating years of love deserves nothing ordinary. We craft anniversary moments worth reliving forever.", image: "/images/anniversary.jpg", tag: "Anniversaries", objectPos: "center 50%" },
   { id: 8, index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur meets modern aesthetics. We transform any space into a festive wonderland.", image: "/images/festive.jpg", tag: "Festive", objectPos: "center center" },
 ];
 
@@ -284,13 +284,13 @@ const ScrollytellingServices = () => {
             {/* Left gradient bleed */}
             <div style={{
               position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none",
-              background: "linear-gradient(to right, var(--cream) 0%, var(--cream) 4%, rgba(250,246,240,0.92) 12%, rgba(250,246,240,0.6) 22%, rgba(250,246,240,0.2) 35%, transparent 50%)",
+              background: "linear-gradient(to right, var(--cream) 0%, var(--cream) 3%, rgba(250,246,240,0.88) 10%, rgba(250,246,240,0.5) 18%, rgba(250,246,240,0.15) 28%, transparent 42%)",
             }} />
 
             {/* Top fade */}
             <div style={{
-              position: "absolute", top: 0, left: 0, right: 0, height: "25%", zIndex: 3,
-              background: "linear-gradient(to bottom, rgba(250,246,240,0.7) 0%, rgba(250,246,240,0.3) 50%, transparent 100%)",
+              position: "absolute", top: 0, left: 0, right: 0, height: "18%", zIndex: 3,
+              background: "linear-gradient(to bottom, rgba(250,246,240,0.5) 0%, rgba(250,246,240,0.2) 60%, transparent 100%)",
               pointerEvents: "none",
             }} />
 

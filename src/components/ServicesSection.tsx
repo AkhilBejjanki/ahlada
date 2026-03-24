@@ -214,7 +214,7 @@ const ProcessStrip = () => (
                 lineHeight: 1, position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)",
               }}>{step.num}</span>
               <div style={{
-                width: 52, height: 52,
+                width: 52, height: 52, position: "relative", zIndex: 2,
                 border: "1px solid rgba(201,146,42,0.4)", borderRadius: "50%",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 margin: "0 auto 16px auto", background: "rgba(201,146,42,0.08)",

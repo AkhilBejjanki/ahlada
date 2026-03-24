@@ -258,7 +258,7 @@ const ScrollytellingServices = () => {
           </div>
 
           {/* ━━━ RIGHT PANEL ━━━ */}
-          <div style={{ position: "relative", overflow: "hidden", background: "#1a0505" }}>
+          <div style={{ position: "relative", overflow: "hidden", background: "#1a0505", height: "100%", width: "100%" }}>
             {/* All images stacked */}
             {services.map((s, i) => (
               <div key={s.id} style={{
@@ -272,7 +272,8 @@ const ScrollytellingServices = () => {
                   alt={s.name}
                   style={{
                     width: "100%", height: "100%",
-                    objectFit: "cover", objectPosition: "center",
+                    objectFit: "cover", objectPosition: s.objectPos,
+                    display: "block",
                     transform: i === activeIndex ? "scale(1.0)" : "scale(1.08)",
                     transition: "transform 0.8s ease, opacity 0.6s ease",
                   }}
@@ -283,13 +284,20 @@ const ScrollytellingServices = () => {
             {/* Left gradient bleed */}
             <div style={{
               position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none",
-              background: "linear-gradient(to right, var(--cream) 0%, rgba(250,246,240,0.4) 12%, transparent 28%)",
+              background: "linear-gradient(to right, var(--cream) 0%, var(--cream) 4%, rgba(250,246,240,0.92) 12%, rgba(250,246,240,0.6) 22%, rgba(250,246,240,0.2) 35%, transparent 50%)",
             }} />
 
-            {/* Bottom gradient */}
+            {/* Top fade */}
             <div style={{
-              position: "absolute", bottom: 0, left: 0, right: 0, height: "40%", zIndex: 2,
-              background: "linear-gradient(to top, rgba(10,0,0,0.45) 0%, transparent 100%)",
+              position: "absolute", top: 0, left: 0, right: 0, height: "25%", zIndex: 3,
+              background: "linear-gradient(to bottom, rgba(250,246,240,0.7) 0%, rgba(250,246,240,0.3) 50%, transparent 100%)",
+              pointerEvents: "none",
+            }} />
+
+            {/* Bottom fade */}
+            <div style={{
+              position: "absolute", bottom: 0, left: 0, right: 0, height: "30%", zIndex: 3,
+              background: "linear-gradient(to top, rgba(10,0,0,0.5) 0%, rgba(10,0,0,0.2) 40%, transparent 100%)",
               pointerEvents: "none",
             }} />
 

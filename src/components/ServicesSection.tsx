@@ -61,35 +61,33 @@ const EnquireLink = ({ activeIndex }: { activeIndex: number }) => {
   );
 };
 
-/* ━━━ Progress Indicator ━━━ */
-const ProgressIndicator = ({ activeIndex, visible }: { activeIndex: number; visible: boolean }) => {
-  if (!visible) return null;
-  return (
-    <div style={{
-      position: "fixed", right: 28, top: "50%", transform: "translateY(-50%)",
-      zIndex: 100, display: "flex", flexDirection: "column", gap: 10,
-    }}>
-      {services.map((s, i) => (
-        <div key={s.id} style={{ display: "flex", alignItems: "center", gap: 8, justifyContent: "flex-end" }}>
+/* ━━━ Progress Indicator (inside left panel) ━━━ */
+const ProgressIndicator = ({ activeIndex }: { activeIndex: number }) => (
+  <div style={{
+    position: "absolute", left: 20, top: "50%", transform: "translateY(-50%)",
+    display: "flex", flexDirection: "column", gap: 8, zIndex: 10,
+  }}>
+    {services.map((s, i) => {
+      const isActive = i === activeIndex;
+      return (
+        <div key={s.id} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <div style={{
+            width: isActive ? 4 : 2,
+            height: isActive ? 36 : 14,
+            background: isActive ? "var(--gold)" : "rgba(201,146,42,0.25)",
+            borderRadius: 2,
+            transition: "all 0.4s ease",
+          }} />
           <span style={{
             fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: "0.1em",
-            color: "var(--gold)",
-            opacity: i === activeIndex ? 1 : 0,
-            transition: "opacity 0.3s ease",
+            color: isActive ? "var(--gold)" : "transparent",
+            transition: "color 0.4s ease",
           }}>{s.index}</span>
-          <div style={{
-            height: i === activeIndex ? 40 : 16,
-            width: i === activeIndex ? 4 : 2,
-            background: i === activeIndex ? "var(--gold)" : "rgba(201,146,42,0.3)",
-            opacity: i === activeIndex ? 1 : 1,
-            transition: "all 0.4s ease",
-            borderRadius: 2,
-          }} />
         </div>
-      ))}
-    </div>
-  );
-};
+      );
+    })}
+  </div>
+);
 
 /* ━━━ Scrollytelling Section ━━━ */
 const ScrollytellingServices = () => {

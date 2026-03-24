@@ -1,22 +1,21 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import {
   Cake, Gem, Heart, Star, Sparkles, Home, Crown, Flower2,
   MessageCircle, PenTool, Settings,
 } from "lucide-react";
 
 const viewport = { once: true, margin: "-80px" };
-const viewportCards = { once: true, margin: "-60px" };
 
 const services = [
-  { index: "01", icon: Cake, name: "Birthday Parties", desc: "Joyful setups that light up every age", image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80" },
-  { index: "02", icon: Gem, name: "Wedding Planning", desc: "From mandap to memories — every detail", image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80" },
-  { index: "03", icon: Heart, name: "Engagement Ceremonies", desc: "Rings, roses, and perfect moments", image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" },
-  { index: "04", icon: Star, name: "Baby Showers", desc: "Soft, whimsical celebrations of new life", image: "https://images.unsplash.com/photo-1544126592-807ade215a0b?w=600&q=80" },
-  { index: "05", icon: Sparkles, name: "Theme Parties", desc: "Concept to creation — we bring it alive", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80" },
-  { index: "06", icon: Home, name: "Housewarming Events", desc: "Bless your new home with warmth and beauty", image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" },
-  { index: "07", icon: Crown, name: "Anniversary Celebrations", desc: "Celebrating years of love, beautifully", image: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80" },
-  { index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur for every festival", image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&q=80" },
+  { id: 1, index: "01", icon: Cake, name: "Birthday Parties", desc: "We create joyful, vibrant setups that make every birthday feel like the most magical day of the year.", image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&q=85", tag: "Celebrations" },
+  { id: 2, index: "02", icon: Gem, name: "Wedding Planning", desc: "From the sacred mandap to the last dance — we orchestrate every detail of your most cherished day.", image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=85", tag: "Weddings" },
+  { id: 3, index: "03", icon: Heart, name: "Engagement Ceremonies", desc: "Rings, roses, and perfect moments. We design engagements that feel as extraordinary as your love story.", image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&q=85", tag: "Engagements" },
+  { id: 4, index: "04", icon: Star, name: "Baby Showers", desc: "Soft, whimsical, and full of wonder — we celebrate the arrival of new life with warmth and beauty.", image: "https://images.unsplash.com/photo-1544126592-807ade215a0b?w=1200&q=85", tag: "New Beginnings" },
+  { id: 5, index: "05", icon: Sparkles, name: "Theme Parties", desc: "From concept to creation, we bring any theme alive with stunning decor, lighting, and immersive design.", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=85", tag: "Theme Events" },
+  { id: 6, index: "06", icon: Home, name: "Housewarming Events", desc: "Bless your new home with warmth, beauty, and the joy of people you love — we handle every detail.", image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85", tag: "Housewarmings" },
+  { id: 7, index: "07", icon: Crown, name: "Anniversary Celebrations", desc: "Celebrating years of love deserves nothing ordinary. We craft anniversary moments worth reliving forever.", image: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1200&q=85", tag: "Anniversaries" },
+  { id: 8, index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur meets modern aesthetics. We transform any space into a festive wonderland.", image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1200&q=85", tag: "Festive" },
 ];
 
 const processSteps = [
@@ -26,144 +25,331 @@ const processSteps = [
   { num: "04", icon: Star, title: "Celebrate", desc: "You enjoy your moment — we handle everything else" },
 ];
 
-const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const Icon = service.icon;
-
+/* ━━━ Enquire Link ━━━ */
+const EnquireLink = ({ activeIndex }: { activeIndex: number }) => {
+  const [hovered, setHovered] = useState(false);
   return (
-    <motion.div
-      initial={{ y: 50, opacity: 0, scale: 0.96 }}
-      whileInView={{ y: 0, opacity: 1, scale: 1 }}
-      transition={{ duration: 0.65, ease: "easeOut", delay: index * 0.08 }}
-      viewport={viewportCards}
-    >
-      <div
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        style={{
-          position: "relative",
-          height: 240,
-          overflow: "hidden",
-          paddingBottom: 28,
-          border: `1px solid rgba(201,146,42,${isHovered ? 0.5 : 0.2})`,
-          borderRadius: 0,
-          cursor: "pointer",
-          transition: "all 0.45s cubic-bezier(0.25,0.46,0.45,0.94)",
-          transform: isHovered ? "translateY(-8px)" : "translateY(0)",
-          boxShadow: isHovered ? "0 24px 64px rgba(139,26,46,0.18)" : "none",
-        }}
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={activeIndex}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+        style={{ marginTop: 32 }}
       >
-        {/* Layer 1: Background Image */}
-        <img
-          src={service.image}
-          alt={service.name}
+        <div
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
           style={{
-            position: "absolute", inset: 0, zIndex: 0,
-            width: "100%", height: "100%",
-            objectFit: "cover", objectPosition: "center",
-            transition: "transform 0.6s ease, opacity 0.45s ease",
-            opacity: isHovered ? 1 : 0,
-            transform: isHovered ? "scale(1.08)" : "scale(1.12)",
+            display: "flex", alignItems: "center", gap: 8, cursor: "pointer", width: "fit-content",
+            borderBottom: `1px solid ${hovered ? "rgba(201,146,42,0.5)" : "transparent"}`,
+            paddingBottom: 4, transition: "border-color 0.3s ease",
           }}
-        />
-
-        {/* Layer 2: Cream overlay */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 1,
-          background: "#FAF6F0",
-          opacity: isHovered ? 0 : 1,
-          transition: "opacity 0.45s ease",
-        }} />
-
-        {/* Layer 2: Dark crimson hover overlay */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 2,
-          background: "linear-gradient(to top, rgba(89,10,18,0.88) 0%, rgba(89,10,18,0.70) 50%, rgba(89,10,18,0.50) 100%)",
-          opacity: isHovered ? 1 : 0,
-          transition: "opacity 0.45s ease",
-        }} />
-
-        {/* Layer 3: Left edge accent */}
-        <div style={{
-          position: "absolute", left: 0, top: 0, zIndex: 10,
-          width: 3, background: "var(--gold)",
-          height: isHovered ? "100%" : "0%",
-          transition: "height 0.45s ease",
-        }} />
-
-        {/* Layer 4: Default content */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 5,
-          padding: "32px 28px",
-          display: "flex", flexDirection: "column", justifyContent: "flex-start",
-          opacity: isHovered ? 0 : 1,
-          transform: isHovered ? "translateY(-8px)" : "translateY(0)",
-          transition: "opacity 0.3s ease, transform 0.3s ease",
-        }}>
+        >
+          <span style={{ fontFamily: "'Cinzel', serif", fontSize: 12, letterSpacing: "0.15em", color: "var(--gold)" }}>
+            Enquire About This
+          </span>
           <span style={{
-            position: "absolute", top: 12, right: 16,
-            fontFamily: "'Cinzel', serif", fontSize: 72, color: "rgba(139,26,46,0.06)",
-            lineHeight: 1, userSelect: "none",
-          }}>{service.index}</span>
-          <Icon size={28} color="var(--crimson)" />
-          <div style={{ width: 24, height: 1, background: "var(--gold)", marginTop: 10 }} />
-          <div style={{
-            fontFamily: "'Cinzel', serif", fontSize: 14,
-            letterSpacing: "0.08em", color: "var(--text-primary)", marginTop: 18,
-          }}>{service.name}</div>
-          <p style={{
-            fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic",
-            fontSize: 14, lineHeight: 1.6, color: "var(--text-muted)", marginTop: 8,
-          }}>{service.desc}</p>
+            fontFamily: "'Cinzel', serif", fontSize: 12, color: "var(--gold)",
+            display: "inline-block", transition: "transform 0.3s ease",
+            transform: hovered ? "translateX(6px)" : "translateX(0)",
+          }}>→</span>
         </div>
-
-        {/* Layer 5: Hover content */}
-        <div style={{
-          position: "absolute", inset: 0, zIndex: 6,
-          padding: "32px 28px",
-          display: "flex", flexDirection: "column", justifyContent: "flex-end",
-          opacity: isHovered ? 1 : 0,
-          transform: isHovered ? "translateY(0)" : "translateY(12px)",
-          transition: "opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s",
-        }}>
-          <div style={{
-            width: isHovered ? 48 : 0, height: 1,
-            background: "var(--gold)", marginBottom: 16,
-            transition: "width 0.4s ease 0.2s",
-          }} />
-          <div style={{
-            fontFamily: "'Cinzel', serif", fontSize: 18,
-            letterSpacing: "0.1em", color: "white", marginBottom: 8,
-          }}>{service.name}</div>
-          <p style={{
-            fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic",
-            fontSize: 15, lineHeight: 1.65, color: "rgba(250,246,240,0.82)", marginBottom: 20,
-          }}>{service.desc}</p>
-          <EnquireNowRow />
-        </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
-const EnquireNowRow = () => {
-  const [arrHovered, setArrHovered] = useState(false);
+/* ━━━ Progress Indicator ━━━ */
+const ProgressIndicator = ({ activeIndex, visible }: { activeIndex: number; visible: boolean }) => {
+  if (!visible) return null;
   return (
-    <div
-      style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}
-      onMouseEnter={() => setArrHovered(true)}
-      onMouseLeave={() => setArrHovered(false)}
-    >
-      <span style={{ fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.2em", color: "var(--gold)" }}>Enquire Now</span>
-      <span style={{
-        fontFamily: "'Cinzel', serif", fontSize: 11, color: "var(--gold)",
-        display: "inline-block", transition: "transform 0.3s ease",
-        transform: arrHovered ? "translateX(5px)" : "translateX(0)",
-      }}>→</span>
+    <div style={{
+      position: "fixed", right: 28, top: "50%", transform: "translateY(-50%)",
+      zIndex: 100, display: "flex", flexDirection: "column", gap: 10,
+    }}>
+      {services.map((s, i) => (
+        <div key={s.id} style={{ display: "flex", alignItems: "center", gap: 8, justifyContent: "flex-end" }}>
+          <span style={{
+            fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: "0.1em",
+            color: i === activeIndex ? "var(--gold)" : "transparent",
+            transition: "color 0.3s ease",
+          }}>{s.index}</span>
+          <div style={{
+            height: i === activeIndex ? 32 : 16,
+            width: 2.5,
+            background: i === activeIndex ? "var(--gold)" : "rgba(201,146,42,0.25)",
+            transition: "all 0.4s ease",
+            borderRadius: 2,
+          }} />
+        </div>
+      ))}
     </div>
   );
 };
 
+/* ━━━ Scrollytelling Section ━━━ */
+const ScrollytellingServices = () => {
+  const outerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [inView, setInView] = useState(false);
+
+  const { scrollYProgress } = useScroll({
+    target: outerRef,
+    offset: ["start start", "end end"],
+  });
+
+  useEffect(() => {
+    return scrollYProgress.on("change", (latest) => {
+      const index = Math.min(Math.floor(latest * 8), 7);
+      setActiveIndex(index);
+    });
+  }, [scrollYProgress]);
+
+  // Preload images
+  useEffect(() => {
+    services.forEach((s) => {
+      const img = new Image();
+      img.src = s.image;
+    });
+  }, []);
+
+  // IntersectionObserver for progress indicator visibility
+  useEffect(() => {
+    const el = outerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.05 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const current = services[activeIndex];
+  const CurrentIcon = current.icon;
+
+  return (
+    <>
+      <div ref={outerRef} style={{ position: "relative", height: "calc(100vh * 10)" }}>
+        <div style={{
+          position: "sticky", top: 0, height: "100vh", overflow: "hidden",
+          display: "grid", gridTemplateColumns: "42% 58%",
+        }}>
+          {/* ━━━ LEFT PANEL ━━━ */}
+          <div style={{
+            background: "var(--cream)", position: "relative", overflow: "hidden",
+            display: "flex", flexDirection: "column", justifyContent: "center",
+            padding: "0 6% 0 7%",
+          }}>
+            {/* Lotus watermark */}
+            <div style={{
+              position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none",
+              backgroundImage: "radial-gradient(ellipse at center, rgba(139,26,46,0.04) 0%, transparent 70%)",
+            }} />
+
+            {/* Large index watermark */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  position: "absolute", top: "50%", left: "5%", transform: "translateY(-60%)",
+                  fontFamily: "'Cinzel', serif", fontSize: 200, fontWeight: 700,
+                  color: "rgba(139,26,46,0.04)", lineHeight: 1,
+                  userSelect: "none", pointerEvents: "none", zIndex: 0,
+                }}
+              >{current.index}</motion.div>
+            </AnimatePresence>
+
+            {/* Content */}
+            <div style={{ position: "relative", zIndex: 1 }}>
+              {/* Eyebrow */}
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
+                <span style={{ color: "var(--gold)", fontSize: 10 }}>✦</span>
+                <span style={{ fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: "0.4em", color: "var(--gold)" }}>WHAT WE CRAFT</span>
+                <span style={{ color: "var(--gold)", fontSize: 10 }}>✦</span>
+              </div>
+
+              {/* OUR SERVICES label */}
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 48 }}>
+                <div style={{ width: 32, height: 1, background: "var(--gold)" }} />
+                <span style={{ fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: "0.45em", color: "var(--gold)" }}>OUR SERVICES</span>
+              </div>
+
+              {/* Icon */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ scale: 0.7, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.7, opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <CurrentIcon size={32} color="var(--crimson)" />
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Gold divider */}
+              <motion.div
+                key={`divider-${activeIndex}`}
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                style={{ width: 48, height: 1, background: "var(--gold)", margin: "16px 0", transformOrigin: "left" }}
+              />
+
+              {/* Service name */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ x: 50, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: -50, opacity: 0 }}
+                  transition={{ duration: 0.45, ease: [0.76, 0, 0.24, 1] }}
+                  style={{ marginTop: 8 }}
+                >
+                  <span style={{
+                    fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic",
+                    fontSize: 52, color: "var(--text-primary)", lineHeight: 1.15,
+                    display: "block", maxWidth: 380,
+                  }}>{current.name}</span>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Descriptor */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  style={{ marginTop: 20 }}
+                >
+                  <p style={{
+                    fontFamily: "'Cormorant Garamond', serif", fontSize: 17,
+                    color: "var(--text-muted)", lineHeight: 1.9, maxWidth: 340,
+                  }}>{current.desc}</p>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Enquire link */}
+              <EnquireLink activeIndex={activeIndex} />
+            </div>
+
+            {/* Scroll hint */}
+            <AnimatePresence>
+              {activeIndex === 0 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  style={{ position: "absolute", bottom: "10%", left: "7%", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 6 }}
+                >
+                  <span style={{
+                    fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: "0.2em",
+                    color: "rgba(139,26,46,0.4)",
+                  }}>Scroll to explore all services</span>
+                  <div style={{
+                    width: 1, height: 24, marginLeft: 4,
+                    background: "linear-gradient(to bottom, var(--gold), transparent)",
+                    animation: "scrollHintBounce 1.5s ease-in-out infinite alternate",
+                  }} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* ━━━ RIGHT PANEL ━━━ */}
+          <div style={{ position: "relative", overflow: "hidden", background: "#1a0505" }}>
+            {/* All images stacked */}
+            {services.map((s, i) => (
+              <div key={s.id} style={{
+                position: "absolute", inset: 0,
+                opacity: i === activeIndex ? 1 : 0,
+                transition: "opacity 0.6s ease",
+                overflow: "hidden",
+              }}>
+                <img
+                  src={s.image}
+                  alt={s.name}
+                  style={{
+                    width: "100%", height: "100%",
+                    objectFit: "cover", objectPosition: "center",
+                    transform: i === activeIndex ? "scale(1.0)" : "scale(1.08)",
+                    transition: "transform 0.8s ease, opacity 0.6s ease",
+                  }}
+                />
+              </div>
+            ))}
+
+            {/* Left gradient bleed */}
+            <div style={{
+              position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none",
+              background: "linear-gradient(to right, var(--cream) 0%, rgba(250,246,240,0.4) 12%, transparent 28%)",
+            }} />
+
+            {/* Bottom gradient */}
+            <div style={{
+              position: "absolute", bottom: 0, left: 0, right: 0, height: "40%", zIndex: 2,
+              background: "linear-gradient(to top, rgba(10,0,0,0.45) 0%, transparent 100%)",
+              pointerEvents: "none",
+            }} />
+
+            {/* Gold corner frames */}
+            <div style={{
+              position: "absolute", top: 32, right: 32,
+              width: 56, height: 56,
+              borderTop: "1.5px solid rgba(201,146,42,0.7)",
+              borderRight: "1.5px solid rgba(201,146,42,0.7)",
+              zIndex: 3, pointerEvents: "none",
+            }} />
+            <div style={{
+              position: "absolute", bottom: 32, left: 0,
+              width: 56, height: 56,
+              borderBottom: "1.5px solid rgba(201,146,42,0.7)",
+              borderLeft: "1.5px solid rgba(201,146,42,0.7)",
+              zIndex: 3, pointerEvents: "none",
+            }} />
+
+            {/* Service tag pill */}
+            <div style={{ position: "absolute", bottom: 32, right: 32, zIndex: 4 }}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ y: 16, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -16, opacity: 0 }}
+                  transition={{ duration: 0.35 }}
+                  style={{
+                    background: "var(--crimson)",
+                    padding: "8px 18px",
+                    display: "flex", alignItems: "center", gap: 8,
+                  }}
+                >
+                  <CurrentIcon size={14} color="var(--gold)" />
+                  <span style={{
+                    fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: "0.2em",
+                    color: "rgba(250,246,240,0.9)",
+                  }}>{current.tag}</span>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ProgressIndicator activeIndex={activeIndex} visible={inView} />
+    </>
+  );
+};
+
+/* ━━━ Process Strip (UNCHANGED) ━━━ */
 const ProcessStrip = () => (
   <div style={{ background: "var(--crimson)", width: "100%", padding: "88px 5% 88px 5%", position: "relative", overflow: "hidden" }}>
     {/* Texture overlay */}
@@ -252,108 +438,18 @@ const ProcessStrip = () => (
   </div>
 );
 
-const ServicesSection = () => {
-  const [ctaHovered, setCtaHovered] = useState(false);
-
-  return (
-    <section style={{ background: "var(--cream)", padding: "100px 0 0 0", position: "relative", overflow: "hidden" }}>
-      {/* Top decorative band */}
-      <div style={{
-        position: "absolute", top: 0, left: 0, width: "100%", height: 20,
-        background: "repeating-linear-gradient(90deg, transparent 0px, transparent 10px, rgba(201,146,42,0.15) 10px, rgba(201,146,42,0.15) 11px)",
-        borderTop: "1px solid rgba(139,26,46,0.15)",
-        borderBottom: "1px solid rgba(201,146,42,0.2)",
-      }} />
-
-      <div style={{ paddingTop: 20 }}>
-        {/* Section Header */}
-        <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center", paddingBottom: 72 }}>
-          <motion.div
-            initial={{ y: 15, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={viewport}
-            transition={{ duration: 0.5 }}
-            style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}
-          >
-            <span style={{ color: "var(--gold)", fontSize: 10 }}>✦</span>
-            <span style={{ fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.45em", color: "var(--gold)" }}>WHAT WE CRAFT</span>
-            <span style={{ color: "var(--gold)", fontSize: 10 }}>✦</span>
-          </motion.div>
-
-          <div style={{ marginTop: 24 }}>
-            <motion.div initial="hidden" whileInView="visible" viewport={viewport}>
-              <div style={{ overflow: "hidden" }}>
-                <motion.span
-                  variants={{ hidden: { y: 60, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  style={{ display: "block", fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: 54, color: "var(--text-primary)" }}
-                >Every Occasion,</motion.span>
-              </div>
-              <div style={{ overflow: "hidden", marginTop: 6 }}>
-                <motion.span
-                  variants={{ hidden: { y: 60, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-                  style={{ display: "block", fontFamily: "'Cinzel', serif", fontSize: 46, color: "var(--crimson)" }}
-                >Crafted to Perfection.</motion.span>
-              </div>
-            </motion.div>
-          </div>
-
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={viewport}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            style={{
-              marginTop: 20, fontFamily: "'Cormorant Garamond', serif", fontSize: 17,
-              lineHeight: 1.85, color: "var(--text-muted)", maxWidth: 500, margin: "20px auto 0 auto",
-            }}
-          >
-            Eight signature services. One promise — your moments deserve nothing less than extraordinary.
-          </motion.p>
-        </div>
-
-        {/* Services Grid */}
-        <div style={{
-          maxWidth: 1200, margin: "0 auto", padding: "0 5%",
-          display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20,
-        }}>
-          {services.map((s, i) => (
-            <ServiceCard key={s.index} service={s} index={i} />
-          ))}
-        </div>
-
-        {/* Section Footer CTA */}
-        <div style={{ textAlign: "center", marginTop: 64, marginBottom: 80 }}>
-          <div style={{ width: 80, height: 1, background: "var(--gold)", margin: "0 auto 32px auto" }} />
-          <motion.span
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={viewport}
-            transition={{ duration: 0.5 }}
-            style={{ display: "block", fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: 22, color: "var(--text-muted)", marginBottom: 20 }}
-          >Looking for something unique?</motion.span>
-          <button
-            onMouseEnter={() => setCtaHovered(true)}
-            onMouseLeave={() => setCtaHovered(false)}
-            style={{
-              fontFamily: "'Cinzel', serif", fontSize: 13, letterSpacing: "0.15em",
-              border: "1.5px solid var(--crimson)",
-              color: ctaHovered ? "var(--cream)" : "var(--crimson)",
-              background: ctaHovered ? "var(--crimson)" : "transparent",
-              padding: "16px 44px", borderRadius: 0, cursor: "pointer",
-              transition: "all 0.3s ease",
-              transform: ctaHovered ? "translateY(-2px)" : "translateY(0)",
-              boxShadow: ctaHovered ? "0 8px 28px rgba(139,26,46,0.2)" : "none",
-            }}
-          >Tell Us About Your Event →</button>
-        </div>
-      </div>
-
-      {/* Process Strip */}
-      <ProcessStrip />
-    </section>
-  );
-};
+/* ━━━ Main Export ━━━ */
+const ServicesSection = () => (
+  <section>
+    <style>{`
+      @keyframes scrollHintBounce {
+        0% { transform: translateY(-8px); }
+        100% { transform: translateY(8px); }
+      }
+    `}</style>
+    <ScrollytellingServices />
+    <ProcessStrip />
+  </section>
+);
 
 export default ServicesSection;

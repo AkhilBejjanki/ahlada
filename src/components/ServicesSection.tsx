@@ -160,9 +160,9 @@ const ScrollytellingServices = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 style={{
-                  position: "absolute", top: "50%", left: "5%", transform: "translateY(-60%)",
-                  fontFamily: "'Cinzel', serif", fontSize: 200, fontWeight: 700,
-                  color: "rgba(139,26,46,0.04)", lineHeight: 1,
+                  position: "absolute", top: "50%", left: "28%", transform: "translateY(-55%)",
+                  fontFamily: "'Cinzel', serif", fontSize: 180, fontWeight: 700,
+                  color: "rgba(139,26,46,0.035)", lineHeight: 1,
                   userSelect: "none", pointerEvents: "none", zIndex: 0,
                 }}
               >{current.index}</motion.div>

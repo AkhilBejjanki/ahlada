@@ -24,8 +24,10 @@ const services = [
     name: "Birthday Parties",
     desc: "We create joyful, vibrant setups that make every birthday feel like the most magical day of the year.",
     image: "/images/birthday.jpg",
+    wideImage: "/images/birthday-wide.jpg",
     tag: "Celebrations",
     objectPosition: "center center",
+    wideObjectPosition: "center center",
   },
   {
     id: 2,
@@ -34,8 +36,10 @@ const services = [
     name: "Wedding Planning",
     desc: "From the sacred mandap to the last dance — we orchestrate every detail of your most cherished day.",
     image: "/images/wedding.jpg",
+    wideImage: "/images/wedding-wide.jpg",
     tag: "Weddings",
     objectPosition: "center 40%",
+    wideObjectPosition: "center 40%",
   },
   {
     id: 3,
@@ -44,8 +48,10 @@ const services = [
     name: "Engagement Ceremonies",
     desc: "Rings, roses, and perfect moments. We design engagements that feel as extraordinary as your love story.",
     image: "/images/engagement.jpg",
+    wideImage: "/images/engagement-wide.jpg",
     tag: "Engagements",
     objectPosition: "center center",
+    wideObjectPosition: "center center",
   },
   {
     id: 4,
@@ -54,8 +60,10 @@ const services = [
     name: "Baby Showers",
     desc: "Soft, whimsical, and full of wonder — we celebrate the arrival of new life with warmth and beauty.",
     image: "/images/babyshower.jpg",
+    wideImage: "/images/babyshower-wide.jpg",
     tag: "New Beginnings",
     objectPosition: "center 30%",
+    wideObjectPosition: "center 30%",
   },
   {
     id: 5,
@@ -64,8 +72,10 @@ const services = [
     name: "Theme Parties",
     desc: "From concept to creation, we bring any theme alive with stunning decor, lighting, and immersive design.",
     image: "/images/theme.jpg",
+    wideImage: "/images/theme-wide.jpg",
     tag: "Theme Events",
     objectPosition: "60% center",
+    wideObjectPosition: "60% center",
   },
   {
     id: 6,
@@ -74,8 +84,10 @@ const services = [
     name: "Housewarming Events",
     desc: "Bless your new home with warmth, beauty, and the joy of people you love — we handle every detail.",
     image: "/images/housewarming.jpg",
+    wideImage: "/images/housewarming-wide.jpg",
     tag: "Housewarmings",
     objectPosition: "center center",
+    wideObjectPosition: "center center",
   },
   {
     id: 7,
@@ -84,8 +96,10 @@ const services = [
     name: "Anniversary Celebrations",
     desc: "Celebrating years of love deserves nothing ordinary. We craft anniversary moments worth reliving forever.",
     image: "/images/anniversary.jpg",
+    wideImage: "/images/anniversary-wide.jpg",
     tag: "Anniversaries",
     objectPosition: "center 35%",
+    wideObjectPosition: "center 35%",
   },
   {
     id: 8,
@@ -94,8 +108,10 @@ const services = [
     name: "Festive Decor",
     desc: "Traditional grandeur meets modern aesthetics. We transform any space into a festive wonderland.",
     image: "/images/festive.jpg",
+    wideImage: "/images/festive-wide.jpg",
     tag: "Festive",
     objectPosition: "center center",
+    wideObjectPosition: "center center",
   },
 ];
 

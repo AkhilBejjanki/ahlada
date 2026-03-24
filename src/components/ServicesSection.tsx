@@ -441,9 +441,8 @@ const ScrollytellingServices = () => {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "center",
-                    transform: i === activeIndex ? "scale(1.0)" : "scale(1.08)",
-                    transition: "transform 0.8s ease, opacity 0.6s ease",
+                    objectPosition: "60% center",
+                    transform: "scale(1.0)",
                   }}
                 />
               </div>

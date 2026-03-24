@@ -13,6 +13,7 @@ const services = [
     desc: "We create joyful, vibrant setups that make every birthday feel like the most magical day of the year.",
     image: "/images/birthday.jpg",
     tag: "Celebrations",
+    objectPosition: "center center",
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const services = [
     desc: "From the sacred mandap to the last dance — we orchestrate every detail of your most cherished day.",
     image: "/images/wedding.jpg",
     tag: "Weddings",
+    objectPosition: "center 40%",
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const services = [
     desc: "Rings, roses, and perfect moments. We design engagements that feel as extraordinary as your love story.",
     image: "/images/engagement.jpg",
     tag: "Engagements",
+    objectPosition: "center center",
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ const services = [
     desc: "Soft, whimsical, and full of wonder — we celebrate the arrival of new life with warmth and beauty.",
     image: "/images/babyshower.jpg",
     tag: "New Beginnings",
+    objectPosition: "center 30%",
   },
   {
     id: 5,
@@ -49,6 +53,7 @@ const services = [
     desc: "From concept to creation, we bring any theme alive with stunning decor, lighting, and immersive design.",
     image: "/images/theme.jpg",
     tag: "Theme Events",
+    objectPosition: "60% center",
   },
   {
     id: 6,
@@ -58,6 +63,7 @@ const services = [
     desc: "Bless your new home with warmth, beauty, and the joy of people you love — we handle every detail.",
     image: "/images/housewarming.jpg",
     tag: "Housewarmings",
+    objectPosition: "center center",
   },
   {
     id: 7,
@@ -67,6 +73,7 @@ const services = [
     desc: "Celebrating years of love deserves nothing ordinary. We craft anniversary moments worth reliving forever.",
     image: "/images/anniversary.jpg",
     tag: "Anniversaries",
+    objectPosition: "center 35%",
   },
   {
     id: 8,
@@ -76,6 +83,7 @@ const services = [
     desc: "Traditional grandeur meets modern aesthetics. We transform any space into a festive wonderland.",
     image: "/images/festive.jpg",
     tag: "Festive",
+    objectPosition: "center center",
   },
 ];
 

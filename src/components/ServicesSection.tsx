@@ -284,15 +284,10 @@ const ScrollytellingServices = () => {
               </div>
             ))}
 
-            {/* Single 4-sided vignette overlay */}
+            {/* Left panel blend gradient only */}
             <div style={{
               position: "absolute", inset: 0, zIndex: 3, pointerEvents: "none",
-              background: [
-                "linear-gradient(to right, rgba(250,246,240,0.92) 0%, rgba(250,246,240,0.6) 8%, rgba(250,246,240,0.15) 20%, transparent 35%)",
-                "linear-gradient(to bottom, rgba(250,246,240,0.5) 0%, transparent 18%)",
-                "linear-gradient(to top, rgba(250,246,240,0.4) 0%, transparent 22%)",
-                "linear-gradient(to left, rgba(250,246,240,0.3) 0%, transparent 15%)",
-              ].join(", "),
+              background: "linear-gradient(to right, rgba(250,246,240,0.92) 0%, rgba(250,246,240,0.6) 6%, rgba(250,246,240,0.15) 14%, transparent 24%)",
             }} />
 
             {/* Service tag pill */}

@@ -207,11 +207,11 @@ const ProcessStrip = () => (
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.12 }}
-              style={{ textAlign: "center", padding: "0 16px" }}
+              style={{ textAlign: "center", padding: "0 16px", position: "relative" }}
             >
               <span style={{
-                fontFamily: "'Cinzel', serif", fontSize: 42, color: "rgba(250,246,240,0.08)",
-                lineHeight: 1, display: "block", marginBottom: -12,
+                fontFamily: "'Cinzel', serif", fontSize: 42, color: "rgba(250,246,240,0.13)",
+                lineHeight: 1, position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)",
               }}>{step.num}</span>
               <div style={{
                 width: 52, height: 52,

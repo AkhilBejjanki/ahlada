@@ -273,7 +273,7 @@ const ScrollytellingServices = () => {
                   style={{
                     position: "absolute", top: 0, left: 0,
                     width: "100%", height: "100%",
-                    objectFit: "cover", objectPosition: s.objectPos,
+                    objectFit: "cover", objectPosition: "center center",
                     display: "block",
                     transform: "scale(1.0)",
                   }}

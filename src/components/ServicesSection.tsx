@@ -164,7 +164,7 @@ const EnquireNowRow = () => {
 };
 
 const ProcessStrip = () => (
-  <div style={{ background: "var(--crimson)", width: "100%", padding: "72px 5%", position: "relative", overflow: "hidden" }}>
+  <div style={{ background: "var(--crimson)", width: "100%", padding: "88px 5%", position: "relative", overflow: "hidden" }}>
     {/* Texture overlay */}
     <div style={{
       position: "absolute", inset: 0, pointerEvents: "none",

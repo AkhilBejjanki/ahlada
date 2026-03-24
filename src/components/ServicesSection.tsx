@@ -449,7 +449,7 @@ const ScrollytellingServices = () => {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "60% center",
+                    objectPosition: s.objectPosition,
                     transform: "scale(1.0)",
                   }}
                 />

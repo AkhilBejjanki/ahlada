@@ -132,6 +132,9 @@ const ScrollytellingServices = () => {
             display: "flex", flexDirection: "column", justifyContent: "center",
             padding: "0 6% 0 7%",
           }}>
+            {/* Progress indicator */}
+            <ProgressIndicator activeIndex={activeIndex} />
+
             {/* Lotus watermark */}
             <div style={{
               position: "absolute", inset: 0, zIndex: 0, pointerEvents: "none",

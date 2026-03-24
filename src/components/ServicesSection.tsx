@@ -336,7 +336,7 @@ const ScrollytellingServices = () => {
         </div>
       </div>
 
-      <ProgressIndicator activeIndex={activeIndex} visible={inView} />
+      
     </>
   );
 };

@@ -262,7 +262,7 @@ const ScrollytellingServices = () => {
             {/* All images stacked */}
             {services.map((s, i) => (
               <div key={s.id} style={{
-                position: "absolute", inset: 0,
+                position: "absolute", top: 0, left: 0, right: 0, bottom: 0,
                 opacity: i === activeIndex ? 1 : 0,
                 transition: "opacity 0.6s ease",
                 overflow: "hidden",
@@ -271,6 +271,7 @@ const ScrollytellingServices = () => {
                   src={s.image}
                   alt={s.name}
                   style={{
+                    position: "absolute", top: 0, left: 0,
                     width: "100%", height: "100%",
                     objectFit: "cover", objectPosition: s.objectPos,
                     display: "block",
@@ -284,20 +285,20 @@ const ScrollytellingServices = () => {
             {/* Left gradient bleed */}
             <div style={{
               position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none",
-              background: "linear-gradient(to right, var(--cream) 0%, var(--cream) 3%, rgba(250,246,240,0.88) 10%, rgba(250,246,240,0.5) 18%, rgba(250,246,240,0.15) 28%, transparent 42%)",
+              background: "linear-gradient(to right, #FAF6F0 0%, #FAF6F0 2%, rgba(250,246,240,0.75) 8%, rgba(250,246,240,0.35) 16%, rgba(250,246,240,0.08) 26%, transparent 38%)",
             }} />
 
             {/* Top fade */}
             <div style={{
-              position: "absolute", top: 0, left: 0, right: 0, height: "18%", zIndex: 3,
-              background: "linear-gradient(to bottom, rgba(250,246,240,0.5) 0%, rgba(250,246,240,0.2) 60%, transparent 100%)",
+              position: "absolute", top: 0, left: 0, right: 0, height: "12%", zIndex: 3,
+              background: "linear-gradient(to bottom, rgba(250,246,240,0.35) 0%, transparent 100%)",
               pointerEvents: "none",
             }} />
 
             {/* Bottom fade */}
             <div style={{
-              position: "absolute", bottom: 0, left: 0, right: 0, height: "30%", zIndex: 3,
-              background: "linear-gradient(to top, rgba(10,0,0,0.5) 0%, rgba(10,0,0,0.2) 40%, transparent 100%)",
+              position: "absolute", bottom: 0, left: 0, right: 0, height: "20%", zIndex: 3,
+              background: "linear-gradient(to top, rgba(5,0,0,0.4) 0%, transparent 100%)",
               pointerEvents: "none",
             }} />
 

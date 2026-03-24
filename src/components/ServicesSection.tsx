@@ -3,6 +3,18 @@ import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { Cake, Gem, Heart, Star, Sparkles, Home, Crown, Flower2, MessageCircle, PenTool, Settings } from "lucide-react";
 
 const viewport = { once: true, margin: "-80px" };
+const WIDE_BREAKPOINT = 1024;
+
+function useIsWide() {
+  const [isWide, setIsWide] = useState(() => typeof window !== "undefined" ? window.innerWidth >= WIDE_BREAKPOINT : true);
+  useEffect(() => {
+    const mql = window.matchMedia(`(min-width: ${WIDE_BREAKPOINT}px)`);
+    const onChange = () => setIsWide(window.innerWidth >= WIDE_BREAKPOINT);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+  return isWide;
+}
 
 const services = [
   {

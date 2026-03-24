@@ -255,7 +255,7 @@ const ServicesSection = () => {
       {/* Top decorative band */}
       <div style={{
         position: "absolute", top: 0, left: 0, width: "100%", height: 20,
-        background: "repeating-linear-gradient(90deg, transparent 0px, transparent 10px, rgba(201,146,42,0.3) 10px, rgba(201,146,42,0.3) 11px)",
+        background: "repeating-linear-gradient(90deg, transparent 0px, transparent 10px, rgba(201,146,42,0.15) 10px, rgba(201,146,42,0.15) 11px)",
         borderTop: "1px solid rgba(139,26,46,0.15)",
         borderBottom: "1px solid rgba(201,146,42,0.2)",
       }} />

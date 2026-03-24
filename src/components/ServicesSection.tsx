@@ -133,6 +133,7 @@ const ScrollytellingServices = () => {
             background: "var(--cream)", position: "relative", overflow: "hidden",
             display: "flex", flexDirection: "column", justifyContent: "center",
             padding: "0 6% 0 7%", height: "100%",
+            border: "none", boxShadow: "none", outline: "none",
           }}>
             {/* Progress indicator */}
             <ProgressIndicator activeIndex={activeIndex} />

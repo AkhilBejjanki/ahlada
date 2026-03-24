@@ -15,7 +15,7 @@ const services = [
   { id: 5, index: "05", icon: Sparkles, name: "Theme Parties", desc: "From concept to creation, we bring any theme alive with stunning decor, lighting, and immersive design.", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1200&q=85", tag: "Theme Events" },
   { id: 6, index: "06", icon: Home, name: "Housewarming Events", desc: "Bless your new home with warmth, beauty, and the joy of people you love — we handle every detail.", image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85", tag: "Housewarmings" },
   { id: 7, index: "07", icon: Crown, name: "Anniversary Celebrations", desc: "Celebrating years of love deserves nothing ordinary. We craft anniversary moments worth reliving forever.", image: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1200&q=85", tag: "Anniversaries" },
-  { id: 8, index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur meets modern aesthetics. We transform any space into a festive wonderland.", image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=1200&q=85", tag: "Festive" },
+  { id: 8, index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur meets modern aesthetics. We transform any space into a festive wonderland.", image: "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=1200&q=85", tag: "Festive" },
 ];
 
 const processSteps = [
@@ -73,13 +73,15 @@ const ProgressIndicator = ({ activeIndex, visible }: { activeIndex: number; visi
         <div key={s.id} style={{ display: "flex", alignItems: "center", gap: 8, justifyContent: "flex-end" }}>
           <span style={{
             fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: "0.1em",
-            color: i === activeIndex ? "var(--gold)" : "transparent",
-            transition: "color 0.3s ease",
+            color: "var(--gold)",
+            opacity: i === activeIndex ? 1 : 0,
+            transition: "opacity 0.3s ease",
           }}>{s.index}</span>
           <div style={{
-            height: i === activeIndex ? 32 : 16,
-            width: 2.5,
-            background: i === activeIndex ? "var(--gold)" : "rgba(201,146,42,0.25)",
+            height: i === activeIndex ? 40 : 16,
+            width: i === activeIndex ? 4 : 2,
+            background: i === activeIndex ? "var(--gold)" : "rgba(201,146,42,0.3)",
+            opacity: i === activeIndex ? 1 : 1,
             transition: "all 0.4s ease",
             borderRadius: 2,
           }} />
@@ -158,16 +160,16 @@ const ScrollytellingServices = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 style={{
-                  position: "absolute", top: "50%", left: "5%", transform: "translateY(-60%)",
-                  fontFamily: "'Cinzel', serif", fontSize: 200, fontWeight: 700,
-                  color: "rgba(139,26,46,0.04)", lineHeight: 1,
+                  position: "absolute", top: "50%", left: "28%", transform: "translateY(-55%)",
+                  fontFamily: "'Cinzel', serif", fontSize: 180, fontWeight: 700,
+                  color: "rgba(139,26,46,0.035)", lineHeight: 1,
                   userSelect: "none", pointerEvents: "none", zIndex: 0,
                 }}
               >{current.index}</motion.div>
             </AnimatePresence>
 
             {/* Content */}
-            <div style={{ position: "relative", zIndex: 1 }}>
+            <div style={{ position: "relative", zIndex: 1, marginTop: 0, alignSelf: "center" }}>
               {/* Eyebrow */}
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
                 <span style={{ color: "var(--gold)", fontSize: 10 }}>✦</span>
@@ -215,7 +217,7 @@ const ScrollytellingServices = () => {
                 >
                   <span style={{
                     fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic",
-                    fontSize: 52, color: "var(--text-primary)", lineHeight: 1.15,
+                    fontSize: 60, color: "var(--text-primary)", lineHeight: 1.1,
                     display: "block", maxWidth: 380,
                   }}>{current.name}</span>
                 </motion.div>
@@ -249,11 +251,11 @@ const ScrollytellingServices = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  style={{ position: "absolute", bottom: "10%", left: "7%", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 6 }}
+                  style={{ position: "absolute", bottom: "8%", left: "7%", zIndex: 10, display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 6 }}
                 >
                   <span style={{
                     fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: "0.2em",
-                    color: "rgba(139,26,46,0.4)",
+                    color: "rgba(139,26,46,0.5)",
                   }}>Scroll to explore all services</span>
                   <div style={{
                     width: 1, height: 24, marginLeft: 4,
@@ -307,14 +309,14 @@ const ScrollytellingServices = () => {
               width: 56, height: 56,
               borderTop: "1.5px solid rgba(201,146,42,0.7)",
               borderRight: "1.5px solid rgba(201,146,42,0.7)",
-              zIndex: 3, pointerEvents: "none",
+              zIndex: 6, pointerEvents: "none",
             }} />
             <div style={{
               position: "absolute", bottom: 32, left: 0,
               width: 56, height: 56,
               borderBottom: "1.5px solid rgba(201,146,42,0.7)",
               borderLeft: "1.5px solid rgba(201,146,42,0.7)",
-              zIndex: 3, pointerEvents: "none",
+              zIndex: 6, pointerEvents: "none",
             }} />
 
             {/* Service tag pill */}

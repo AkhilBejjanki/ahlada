@@ -55,7 +55,7 @@ const HeroSection = () => {
         display: "grid",
         gridTemplateColumns: "54% 46%",
         alignItems: "center",
-        paddingTop: "30px",
+        paddingTop: "50px",
       }}
     >
       {/* LAYER 1 — Floating Lotus Petals */}

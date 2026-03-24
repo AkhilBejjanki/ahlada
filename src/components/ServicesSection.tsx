@@ -471,7 +471,7 @@ const ScrollytellingServices = () => {
             <div
               style={{
                 position: "absolute",
-                top: 72,
+                top: 32,
                 right: 32,
                 width: 56,
                 height: 56,

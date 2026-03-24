@@ -285,20 +285,20 @@ const ScrollytellingServices = () => {
             {/* Left gradient bleed */}
             <div style={{
               position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none",
-              background: "linear-gradient(to right, #FAF6F0 0%, #FAF6F0 2%, rgba(250,246,240,0.75) 8%, rgba(250,246,240,0.35) 16%, rgba(250,246,240,0.08) 26%, transparent 38%)",
+              background: "linear-gradient(to right, #FAF6F0 0%, #FAF6F0 2%, rgba(250,246,240,0.6) 8%, rgba(250,246,240,0.25) 16%, rgba(250,246,240,0.05) 24%, transparent 34%)",
             }} />
 
             {/* Top fade */}
             <div style={{
-              position: "absolute", top: 0, left: 0, right: 0, height: "12%", zIndex: 3,
-              background: "linear-gradient(to bottom, rgba(250,246,240,0.35) 0%, transparent 100%)",
+              position: "absolute", top: 0, left: 0, right: 0, height: "8%", zIndex: 3,
+              background: "linear-gradient(to bottom, rgba(250,246,240,0.2) 0%, transparent 100%)",
               pointerEvents: "none",
             }} />
 
             {/* Bottom fade */}
             <div style={{
-              position: "absolute", bottom: 0, left: 0, right: 0, height: "20%", zIndex: 3,
-              background: "linear-gradient(to top, rgba(5,0,0,0.4) 0%, transparent 100%)",
+              position: "absolute", bottom: 0, left: 0, right: 0, height: "12%", zIndex: 3,
+              background: "linear-gradient(to top, rgba(5,0,0,0.25) 0%, transparent 100%)",
               pointerEvents: "none",
             }} />
 

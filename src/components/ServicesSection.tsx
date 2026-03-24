@@ -226,11 +226,16 @@ const ScrollytellingServices = () => {
             style={{
               background: "var(--cream)",
               position: "relative",
+              width: "42%",
+              height: "100vh",
               overflow: "hidden",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
               padding: "0 6% 0 7%",
+              border: "none",
+              boxShadow: "none",
+              outline: "none",
             }}
           >
             {/* Progress indicator */}

@@ -94,7 +94,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         <div style={{
           position: "absolute", inset: 0, zIndex: 5,
           padding: "32px 28px",
-          display: "flex", flexDirection: "column",
+          display: "flex", flexDirection: "column", justifyContent: "flex-start",
           opacity: isHovered ? 0 : 1,
           transform: isHovered ? "translateY(-8px)" : "translateY(0)",
           transition: "opacity 0.3s ease, transform 0.3s ease",

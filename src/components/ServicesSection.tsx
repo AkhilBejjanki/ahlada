@@ -93,7 +93,7 @@ const ProgressIndicator = ({ activeIndex }: { activeIndex: number }) => (
 const ScrollytellingServices = () => {
   const outerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [inView, setInView] = useState(false);
+  
 
   const { scrollYProgress } = useScroll({
     target: outerRef,

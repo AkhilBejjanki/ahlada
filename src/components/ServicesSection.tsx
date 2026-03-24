@@ -237,6 +237,8 @@ const ScrollytellingServices = () => {
     services.forEach((s) => {
       const img = new Image();
       img.src = s.image;
+      const wideImg = new Image();
+      wideImg.src = s.wideImage;
     });
   }, []);
 

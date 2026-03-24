@@ -42,7 +42,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         onMouseLeave={() => setIsHovered(false)}
         style={{
           position: "relative",
-          height: 320,
+          height: 260,
           overflow: "hidden",
           border: `1px solid rgba(201,146,42,${isHovered ? 0.5 : 0.2})`,
           borderRadius: 0,
@@ -94,7 +94,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         <div style={{
           position: "absolute", inset: 0, zIndex: 5,
           padding: "32px 28px",
-          display: "flex", flexDirection: "column",
+          display: "flex", flexDirection: "column", justifyContent: "flex-start",
           opacity: isHovered ? 0 : 1,
           transform: isHovered ? "translateY(-8px)" : "translateY(0)",
           transition: "opacity 0.3s ease, transform 0.3s ease",
@@ -164,7 +164,7 @@ const EnquireNowRow = () => {
 };
 
 const ProcessStrip = () => (
-  <div style={{ background: "var(--crimson)", width: "100%", padding: "72px 5%", position: "relative", overflow: "hidden" }}>
+  <div style={{ background: "var(--crimson)", width: "100%", padding: "88px 5%", position: "relative", overflow: "hidden" }}>
     {/* Texture overlay */}
     <div style={{
       position: "absolute", inset: 0, pointerEvents: "none",
@@ -194,7 +194,7 @@ const ProcessStrip = () => (
       display: "grid",
       gridTemplateColumns: "1fr auto 1fr auto 1fr auto 1fr",
       alignItems: "center",
-      maxWidth: 1000, margin: "0 auto", gap: 0, position: "relative",
+      maxWidth: 1000, margin: "0 auto", marginTop: 28, gap: 0, position: "relative",
     }}>
       {processSteps.map((step, i) => {
         const StepIcon = step.icon;
@@ -207,14 +207,14 @@ const ProcessStrip = () => (
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.12 }}
-              style={{ textAlign: "center", padding: "0 16px" }}
+              style={{ textAlign: "center", padding: "0 16px", position: "relative" }}
             >
               <span style={{
-                fontFamily: "'Cinzel', serif", fontSize: 42, color: "rgba(250,246,240,0.08)",
-                lineHeight: 1, display: "block", marginBottom: -12,
+                fontFamily: "'Cinzel', serif", fontSize: 42, color: "rgba(250,246,240,0.13)",
+                lineHeight: 1, position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)",
               }}>{step.num}</span>
               <div style={{
-                width: 52, height: 52,
+                width: 52, height: 52, position: "relative", zIndex: 2,
                 border: "1px solid rgba(201,146,42,0.4)", borderRadius: "50%",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 margin: "0 auto 16px auto", background: "rgba(201,146,42,0.08)",
@@ -231,12 +231,17 @@ const ProcessStrip = () => (
               }}>{step.desc}</p>
             </motion.div>
             {!isLast && (
-              <div key={`conn-${i}`} style={{ height: 1, width: "100%", background: "linear-gradient(to right, rgba(201,146,42,0.15), rgba(201,146,42,0.5), rgba(201,146,42,0.15))", position: "relative" }}>
+              <div key={`conn-${i}`} style={{
+                display: "flex", alignItems: "center", justifyContent: "center",
+                position: "relative", padding: "0 8px",
+              }}>
+                <div style={{
+                  width: 80, height: 1,
+                  background: "linear-gradient(to right, rgba(201,146,42,0.2), rgba(201,146,42,0.6), rgba(201,146,42,0.2))",
+                }} />
                 <span style={{
-                  position: "absolute", top: "50%", left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  fontSize: 10, color: "rgba(201,146,42,0.6)",
-                  background: "var(--crimson)", padding: "0 4px",
+                  position: "absolute", fontSize: 10, color: "rgba(201,146,42,0.7)",
+                  backgroundColor: "var(--crimson)", padding: "0 6px", lineHeight: "1",
                 }}>✦</span>
               </div>
             )}
@@ -255,7 +260,7 @@ const ServicesSection = () => {
       {/* Top decorative band */}
       <div style={{
         position: "absolute", top: 0, left: 0, width: "100%", height: 20,
-        background: "repeating-linear-gradient(90deg, transparent 0px, transparent 10px, rgba(201,146,42,0.3) 10px, rgba(201,146,42,0.3) 11px)",
+        background: "repeating-linear-gradient(90deg, transparent 0px, transparent 10px, rgba(201,146,42,0.15) 10px, rgba(201,146,42,0.15) 11px)",
         borderTop: "1px solid rgba(139,26,46,0.15)",
         borderBottom: "1px solid rgba(201,146,42,0.2)",
       }} />

@@ -8,14 +8,14 @@ import {
 const viewport = { once: true, margin: "-80px" };
 
 const services = [
-  { id: 1, index: "01", icon: Cake, name: "Birthday Parties", desc: "We create joyful, vibrant setups that make every birthday feel like the most magical day of the year.", image: "/images/birthday.jpg", tag: "Birthdays", objectPos: "center 35%" },
+  { id: 1, index: "01", icon: Cake, name: "Birthday Parties", desc: "We create joyful, vibrant setups that make every birthday feel like the most magical day of the year.", image: "/images/birthday.jpg", tag: "Birthdays", objectPos: "center 25%" },
   { id: 2, index: "02", icon: Gem, name: "Wedding Planning", desc: "From the sacred mandap to the last dance — we orchestrate every detail of your most cherished day.", image: "/images/wedding.jpg", tag: "Weddings", objectPos: "center 20%" },
-  { id: 3, index: "03", icon: Heart, name: "Engagement Ceremonies", desc: "Rings, roses, and perfect moments. We design engagements that feel as extraordinary as your love story.", image: "/images/engagement.jpg", tag: "Engagements", objectPos: "center center" },
-  { id: 4, index: "04", icon: Star, name: "Baby Showers", desc: "Soft, whimsical, and full of wonder — we celebrate the arrival of new life with warmth and beauty.", image: "/images/babyshower.jpg", tag: "New Beginnings", objectPos: "center 15%" },
-  { id: 5, index: "05", icon: Sparkles, name: "Theme Parties", desc: "From concept to creation, we bring any theme alive with stunning decor, lighting, and immersive design.", image: "/images/theme.jpg", tag: "Theme Events", objectPos: "center center" },
-  { id: 6, index: "06", icon: Home, name: "Housewarming Events", desc: "Bless your new home with warmth, beauty, and the joy of people you love — we handle every detail.", image: "/images/housewarming.jpg", tag: "Housewarmings", objectPos: "center 40%" },
-  { id: 7, index: "07", icon: Crown, name: "Anniversary Celebrations", desc: "Celebrating years of love deserves nothing ordinary. We craft anniversary moments worth reliving forever.", image: "/images/anniversary.jpg", tag: "Anniversaries", objectPos: "center 50%" },
-  { id: 8, index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur meets modern aesthetics. We transform any space into a festive wonderland.", image: "/images/festive.jpg", tag: "Festive", objectPos: "center center" },
+  { id: 3, index: "03", icon: Heart, name: "Engagement Ceremonies", desc: "Rings, roses, and perfect moments. We design engagements that feel as extraordinary as your love story.", image: "/images/engagement.jpg", tag: "Engagements", objectPos: "center 45%" },
+  { id: 4, index: "04", icon: Star, name: "Baby Showers", desc: "Soft, whimsical, and full of wonder — we celebrate the arrival of new life with warmth and beauty.", image: "/images/babyshower.jpg", tag: "New Beginnings", objectPos: "center 22%" },
+  { id: 5, index: "05", icon: Sparkles, name: "Theme Parties", desc: "From concept to creation, we bring any theme alive with stunning decor, lighting, and immersive design.", image: "/images/theme.jpg", tag: "Theme Events", objectPos: "40% center" },
+  { id: 6, index: "06", icon: Home, name: "Housewarming Events", desc: "Bless your new home with warmth, beauty, and the joy of people you love — we handle every detail.", image: "/images/housewarming.jpg", tag: "Housewarmings", objectPos: "center 30%" },
+  { id: 7, index: "07", icon: Crown, name: "Anniversary Celebrations", desc: "Celebrating years of love deserves nothing ordinary. We craft anniversary moments worth reliving forever.", image: "/images/anniversary.jpg", tag: "Anniversaries", objectPos: "center 35%" },
+  { id: 8, index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur meets modern aesthetics. We transform any space into a festive wonderland.", image: "/images/festive.jpg", tag: "Festive", objectPos: "center 30%" },
 ];
 
 const processSteps = [
@@ -262,7 +262,7 @@ const ScrollytellingServices = () => {
             {/* All images stacked */}
             {services.map((s, i) => (
               <div key={s.id} style={{
-                position: "absolute", inset: 0,
+                position: "absolute", top: 0, left: 0, right: 0, bottom: 0,
                 opacity: i === activeIndex ? 1 : 0,
                 transition: "opacity 0.6s ease",
                 overflow: "hidden",
@@ -271,6 +271,7 @@ const ScrollytellingServices = () => {
                   src={s.image}
                   alt={s.name}
                   style={{
+                    position: "absolute", top: 0, left: 0,
                     width: "100%", height: "100%",
                     objectFit: "cover", objectPosition: s.objectPos,
                     display: "block",
@@ -284,20 +285,20 @@ const ScrollytellingServices = () => {
             {/* Left gradient bleed */}
             <div style={{
               position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none",
-              background: "linear-gradient(to right, var(--cream) 0%, var(--cream) 3%, rgba(250,246,240,0.88) 10%, rgba(250,246,240,0.5) 18%, rgba(250,246,240,0.15) 28%, transparent 42%)",
+              background: "linear-gradient(to right, #FAF6F0 0%, #FAF6F0 2%, rgba(250,246,240,0.75) 8%, rgba(250,246,240,0.35) 16%, rgba(250,246,240,0.08) 26%, transparent 38%)",
             }} />
 
             {/* Top fade */}
             <div style={{
-              position: "absolute", top: 0, left: 0, right: 0, height: "18%", zIndex: 3,
-              background: "linear-gradient(to bottom, rgba(250,246,240,0.5) 0%, rgba(250,246,240,0.2) 60%, transparent 100%)",
+              position: "absolute", top: 0, left: 0, right: 0, height: "12%", zIndex: 3,
+              background: "linear-gradient(to bottom, rgba(250,246,240,0.35) 0%, transparent 100%)",
               pointerEvents: "none",
             }} />
 
             {/* Bottom fade */}
             <div style={{
-              position: "absolute", bottom: 0, left: 0, right: 0, height: "30%", zIndex: 3,
-              background: "linear-gradient(to top, rgba(10,0,0,0.5) 0%, rgba(10,0,0,0.2) 40%, transparent 100%)",
+              position: "absolute", bottom: 0, left: 0, right: 0, height: "20%", zIndex: 3,
+              background: "linear-gradient(to top, rgba(5,0,0,0.4) 0%, transparent 100%)",
               pointerEvents: "none",
             }} />
 

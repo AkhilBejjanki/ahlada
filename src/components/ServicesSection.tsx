@@ -473,17 +473,23 @@ const ScrollytellingServices = () => {
                   overflow: "hidden",
                 }}
               >
-                <img
-                  src={s.image}
-                  alt={s.name}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: s.objectPosition,
-                    transform: "scale(1.0)",
-                  }}
-                />
+                <picture>
+                  <source
+                    media={`(min-width: ${WIDE_BREAKPOINT}px)`}
+                    srcSet={s.wideImage}
+                  />
+                  <img
+                    src={s.image}
+                    alt={s.name}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: isWide ? s.wideObjectPosition : s.objectPosition,
+                      transform: "scale(1.0)",
+                    }}
+                  />
+                </picture>
               </div>
             ))}
 

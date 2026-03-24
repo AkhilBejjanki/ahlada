@@ -421,7 +421,7 @@ const ScrollytellingServices = () => {
           </div>
 
           {/* ━━━ RIGHT PANEL ━━━ */}
-          <div style={{ position: "relative", overflow: "hidden", background: "#1a0505" }}>
+          <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "58%", overflow: "hidden", background: "#1a0505" }}>
             {/* All images stacked */}
             {services.map((s, i) => (
               <div

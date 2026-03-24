@@ -194,7 +194,7 @@ const ProcessStrip = () => (
       display: "grid",
       gridTemplateColumns: "1fr auto 1fr auto 1fr auto 1fr",
       alignItems: "center",
-      maxWidth: 1000, margin: "0 auto", gap: 0, position: "relative",
+      maxWidth: 1000, margin: "0 auto", marginTop: 28, gap: 0, position: "relative",
     }}>
       {processSteps.map((step, i) => {
         const StepIcon = step.icon;

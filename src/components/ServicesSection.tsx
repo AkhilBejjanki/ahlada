@@ -42,8 +42,9 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         onMouseLeave={() => setIsHovered(false)}
         style={{
           position: "relative",
-          height: 260,
+          height: 240,
           overflow: "hidden",
+          paddingBottom: 28,
           border: `1px solid rgba(201,146,42,${isHovered ? 0.5 : 0.2})`,
           borderRadius: 0,
           cursor: "pointer",

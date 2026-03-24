@@ -224,10 +224,12 @@ const ProcessStrip = () => (
                 <StepIcon size={20} color="var(--gold)" />
               </div>
               <span style={{
+                position: "relative", zIndex: 1,
                 fontFamily: "'Cinzel', serif", fontSize: 13, letterSpacing: "0.2em",
                 color: "rgba(250,246,240,0.95)", marginBottom: 10, display: "block",
               }}>{step.title}</span>
               <p style={{
+                position: "relative", zIndex: 1,
                 fontFamily: "'Cormorant Garamond', serif", fontSize: 14, lineHeight: 1.6,
                 color: "rgba(250,246,240,0.6)", maxWidth: 160, margin: "0 auto",
               }}>{step.desc}</p>

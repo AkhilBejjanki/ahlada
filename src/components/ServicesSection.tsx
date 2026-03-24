@@ -42,8 +42,9 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         onMouseLeave={() => setIsHovered(false)}
         style={{
           position: "relative",
-          height: 260,
+          height: 240,
           overflow: "hidden",
+          paddingBottom: 28,
           border: `1px solid rgba(201,146,42,${isHovered ? 0.5 : 0.2})`,
           borderRadius: 0,
           cursor: "pointer",
@@ -77,7 +78,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0]; index: n
         {/* Layer 2: Dark crimson hover overlay */}
         <div style={{
           position: "absolute", inset: 0, zIndex: 2,
-          background: "linear-gradient(to top, rgba(89,10,18,0.92) 0%, rgba(89,10,18,0.75) 50%, rgba(89,10,18,0.55) 100%)",
+          background: "linear-gradient(to top, rgba(89,10,18,0.88) 0%, rgba(89,10,18,0.70) 50%, rgba(89,10,18,0.50) 100%)",
           opacity: isHovered ? 1 : 0,
           transition: "opacity 0.45s ease",
         }} />
@@ -164,7 +165,7 @@ const EnquireNowRow = () => {
 };
 
 const ProcessStrip = () => (
-  <div style={{ background: "var(--crimson)", width: "100%", padding: "88px 5%", position: "relative", overflow: "hidden" }}>
+  <div style={{ background: "var(--crimson)", width: "100%", padding: "88px 5% 88px 5%", position: "relative", overflow: "hidden" }}>
     {/* Texture overlay */}
     <div style={{
       position: "absolute", inset: 0, pointerEvents: "none",
@@ -209,10 +210,11 @@ const ProcessStrip = () => (
               transition={{ duration: 0.6, delay: i * 0.12 }}
               style={{ textAlign: "center", padding: "0 16px", position: "relative" }}
             >
-              <span style={{
-                fontFamily: "'Cinzel', serif", fontSize: 42, color: "rgba(250,246,240,0.13)",
-                lineHeight: 1, position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)",
-              }}>{step.num}</span>
+              <div style={{
+                position: "absolute", top: -8, left: "50%", transform: "translateX(-50%)",
+                fontFamily: "'Cinzel', serif", fontSize: 64, color: "rgba(250,246,240,0.10)",
+                lineHeight: 1, userSelect: "none", pointerEvents: "none", zIndex: 0, whiteSpace: "nowrap",
+              }}>{step.num}</div>
               <div style={{
                 width: 52, height: 52, position: "relative", zIndex: 2,
                 border: "1px solid rgba(201,146,42,0.4)", borderRadius: "50%",
@@ -222,10 +224,12 @@ const ProcessStrip = () => (
                 <StepIcon size={20} color="var(--gold)" />
               </div>
               <span style={{
+                position: "relative", zIndex: 1,
                 fontFamily: "'Cinzel', serif", fontSize: 13, letterSpacing: "0.2em",
                 color: "rgba(250,246,240,0.95)", marginBottom: 10, display: "block",
               }}>{step.title}</span>
               <p style={{
+                position: "relative", zIndex: 1,
                 fontFamily: "'Cormorant Garamond', serif", fontSize: 14, lineHeight: 1.6,
                 color: "rgba(250,246,240,0.6)", maxWidth: 160, margin: "0 auto",
               }}>{step.desc}</p>
@@ -234,6 +238,7 @@ const ProcessStrip = () => (
               <div key={`conn-${i}`} style={{
                 display: "flex", alignItems: "center", justifyContent: "center",
                 position: "relative", padding: "0 8px",
+                marginTop: 28, alignSelf: "flex-start",
               }}>
                 <div style={{
                   width: 80, height: 1,

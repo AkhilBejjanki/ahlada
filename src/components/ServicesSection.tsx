@@ -231,12 +231,17 @@ const ProcessStrip = () => (
               }}>{step.desc}</p>
             </motion.div>
             {!isLast && (
-              <div key={`conn-${i}`} style={{ height: 1, width: "100%", background: "linear-gradient(to right, rgba(201,146,42,0.15), rgba(201,146,42,0.5), rgba(201,146,42,0.15))", position: "relative" }}>
+              <div key={`conn-${i}`} style={{
+                display: "flex", alignItems: "center", justifyContent: "center",
+                position: "relative", padding: "0 8px",
+              }}>
+                <div style={{
+                  width: 80, height: 1,
+                  background: "linear-gradient(to right, rgba(201,146,42,0.2), rgba(201,146,42,0.6), rgba(201,146,42,0.2))",
+                }} />
                 <span style={{
-                  position: "absolute", top: "50%", left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  fontSize: 10, color: "rgba(201,146,42,0.6)",
-                  background: "var(--crimson)", padding: "0 4px",
+                  position: "absolute", fontSize: 10, color: "rgba(201,146,42,0.7)",
+                  backgroundColor: "var(--crimson)", padding: "0 6px", lineHeight: "1",
                 }}>✦</span>
               </div>
             )}

@@ -1,123 +1,266 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Cake, Gem, Heart, Star, Sparkles, Home, Crown, Flower2, LucideIcon } from "lucide-react";
+import {
+  Cake, Gem, Heart, Star, Sparkles, Home, Crown, Flower2,
+  MessageCircle, PenTool, Settings,
+} from "lucide-react";
 
 const viewport = { once: true, margin: "-80px" };
 const viewportCards = { once: true, margin: "-60px" };
 
 const services = [
-  { index: "01", icon: Cake, name: "Birthday Parties", desc: "Joyful setups that light up every age" },
-  { index: "02", icon: Gem, name: "Wedding Planning", desc: "From mandap to memories — every detail" },
-  { index: "03", icon: Heart, name: "Engagement Ceremonies", desc: "Rings, roses, and perfect moments" },
-  { index: "04", icon: Star, name: "Baby Showers", desc: "Soft, whimsical celebrations of new life" },
-  { index: "05", icon: Sparkles, name: "Theme Parties", desc: "Concept to creation — we bring it alive" },
-  { index: "06", icon: Home, name: "Housewarming Events", desc: "Bless your new home with warmth and beauty" },
-  { index: "07", icon: Crown, name: "Anniversary Celebrations", desc: "Celebrating years of love, beautifully" },
-  { index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur for every festival" },
+  { index: "01", icon: Cake, name: "Birthday Parties", desc: "Joyful setups that light up every age", image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80" },
+  { index: "02", icon: Gem, name: "Wedding Planning", desc: "From mandap to memories — every detail", image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80" },
+  { index: "03", icon: Heart, name: "Engagement Ceremonies", desc: "Rings, roses, and perfect moments", image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80" },
+  { index: "04", icon: Star, name: "Baby Showers", desc: "Soft, whimsical celebrations of new life", image: "https://images.unsplash.com/photo-1544126592-807ade215a0b?w=600&q=80" },
+  { index: "05", icon: Sparkles, name: "Theme Parties", desc: "Concept to creation — we bring it alive", image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80" },
+  { index: "06", icon: Home, name: "Housewarming Events", desc: "Bless your new home with warmth and beauty", image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" },
+  { index: "07", icon: Crown, name: "Anniversary Celebrations", desc: "Celebrating years of love, beautifully", image: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80" },
+  { index: "08", icon: Flower2, name: "Festive Decor", desc: "Traditional grandeur for every festival", image: "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&q=80" },
+];
+
+const processSteps = [
+  { num: "01", icon: MessageCircle, title: "Consult", desc: "We listen to your vision and understand every detail" },
+  { num: "02", icon: PenTool, title: "Design", desc: "We craft a tailored plan with decor, flow and budget" },
+  { num: "03", icon: Settings, title: "Execute", desc: "Our team brings every element to life flawlessly" },
+  { num: "04", icon: Star, title: "Celebrate", desc: "You enjoy your moment — we handle everything else" },
 ];
 
 const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
-  const [hovered, setHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const Icon = service.icon;
 
   return (
     <motion.div
-      initial={{ y: 40, opacity: 0, scale: 0.97 }}
+      initial={{ y: 50, opacity: 0, scale: 0.96 }}
       whileInView={{ y: 0, opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.08 }}
+      transition={{ duration: 0.65, ease: "easeOut", delay: index * 0.08 }}
       viewport={viewportCards}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        position: "relative",
-        background: "white",
-        border: `1px solid rgba(201,146,42,${hovered ? 0.6 : 0.2})`,
-        padding: "36px 28px 32px 28px",
-        height: 300,
-        overflow: "hidden",
-        cursor: "pointer",
-        transition: "all 0.35s cubic-bezier(0.25,0.46,0.45,0.94)",
-        transform: hovered ? "translateY(-8px)" : "translateY(0)",
-        boxShadow: hovered ? "0 20px 60px rgba(139,26,46,0.12)" : "none",
-      }}
     >
-      {/* Left edge accent */}
-      <div style={{
-        position: "absolute", left: 0, top: 0, width: 3,
-        background: "var(--crimson)", height: hovered ? "100%" : 0,
-        transition: "height 0.4s ease", zIndex: 1,
-      }} />
+      <div
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        style={{
+          position: "relative",
+          height: 320,
+          overflow: "hidden",
+          border: `1px solid rgba(201,146,42,${isHovered ? 0.5 : 0.2})`,
+          borderRadius: 0,
+          cursor: "pointer",
+          transition: "all 0.45s cubic-bezier(0.25,0.46,0.45,0.94)",
+          transform: isHovered ? "translateY(-8px)" : "translateY(0)",
+          boxShadow: isHovered ? "0 24px 64px rgba(139,26,46,0.18)" : "none",
+        }}
+      >
+        {/* Layer 1: Background Image */}
+        <img
+          src={service.image}
+          alt={service.name}
+          style={{
+            position: "absolute", inset: 0, zIndex: 0,
+            width: "100%", height: "100%",
+            objectFit: "cover", objectPosition: "center",
+            transition: "transform 0.6s ease, opacity 0.45s ease",
+            opacity: isHovered ? 1 : 0,
+            transform: isHovered ? "scale(1.08)" : "scale(1.12)",
+          }}
+        />
 
-      {/* Background bloom */}
-      <div style={{
-        position: "absolute", inset: 0,
-        background: "radial-gradient(ellipse at bottom center, rgba(139,26,46,0.05) 0%, transparent 70%)",
-        opacity: hovered ? 1 : 0, transition: "opacity 0.35s ease",
-        pointerEvents: "none", zIndex: 0,
-      }} />
-
-      {/* Background index */}
-      <span style={{
-        position: "absolute", top: 12, right: 16,
-        fontFamily: "'Cinzel', serif", fontSize: 80, color: "rgba(139,26,46,0.04)",
-        lineHeight: 1, pointerEvents: "none", zIndex: 0, userSelect: "none",
-      }}>{service.index}</span>
-
-      {/* Content */}
-      <div style={{ position: "relative", zIndex: 2 }}>
-        <div style={{ width: 52, height: 52, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <Icon
-            size={28}
-            color={hovered ? "var(--gold)" : "var(--crimson)"}
-            style={{ transition: "transform 0.3s ease, color 0.3s ease", transform: hovered ? "scale(1.15)" : "scale(1)" }}
-          />
-        </div>
+        {/* Layer 2: Cream overlay */}
         <div style={{
-          width: hovered ? 42 : 24, height: 1,
-          background: "var(--gold)", marginTop: 10,
-          transition: "width 0.3s ease",
+          position: "absolute", inset: 0, zIndex: 1,
+          background: "#FAF6F0",
+          opacity: isHovered ? 0 : 1,
+          transition: "opacity 0.45s ease",
         }} />
+
+        {/* Layer 2: Dark crimson hover overlay */}
         <div style={{
-          marginTop: 18, fontFamily: "'Cinzel', serif", fontSize: 14,
-          letterSpacing: "0.08em", color: hovered ? "var(--crimson)" : "var(--text-primary)",
-          transition: "color 0.3s ease",
-        }}>{service.name}</div>
-        <p style={{
-          marginTop: 8, fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic",
-          fontSize: 14, lineHeight: 1.6, color: "var(--text-muted)", margin: "8px 0 0 0",
-        }}>{service.desc}</p>
+          position: "absolute", inset: 0, zIndex: 2,
+          background: "linear-gradient(to top, rgba(89,10,18,0.92) 0%, rgba(89,10,18,0.75) 50%, rgba(89,10,18,0.55) 100%)",
+          opacity: isHovered ? 1 : 0,
+          transition: "opacity 0.45s ease",
+        }} />
+
+        {/* Layer 3: Left edge accent */}
         <div style={{
-          marginTop: 20, display: "flex", alignItems: "center", gap: 6,
-          opacity: hovered ? 1 : 0,
-          transform: hovered ? "translateY(0)" : "translateY(6px)",
-          transition: "opacity 0.3s ease 0.08s, transform 0.3s ease 0.08s",
+          position: "absolute", left: 0, top: 0, zIndex: 10,
+          width: 3, background: "var(--gold)",
+          height: isHovered ? "100%" : "0%",
+          transition: "height 0.45s ease",
+        }} />
+
+        {/* Layer 4: Default content */}
+        <div style={{
+          position: "absolute", inset: 0, zIndex: 5,
+          padding: "32px 28px",
+          display: "flex", flexDirection: "column",
+          opacity: isHovered ? 0 : 1,
+          transform: isHovered ? "translateY(-8px)" : "translateY(0)",
+          transition: "opacity 0.3s ease, transform 0.3s ease",
         }}>
-          <span style={{ fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.15em", color: "var(--gold)" }}>Enquire Now</span>
           <span style={{
-            fontFamily: "'Cinzel', serif", fontSize: 11, color: "var(--gold)",
-            display: "inline-block", transition: "transform 0.3s ease",
-            transform: hovered ? "translateX(4px)" : "translateX(0)",
-          }}>→</span>
+            position: "absolute", top: 12, right: 16,
+            fontFamily: "'Cinzel', serif", fontSize: 72, color: "rgba(139,26,46,0.06)",
+            lineHeight: 1, userSelect: "none",
+          }}>{service.index}</span>
+          <Icon size={28} color="var(--crimson)" />
+          <div style={{ width: 24, height: 1, background: "var(--gold)", marginTop: 10 }} />
+          <div style={{
+            fontFamily: "'Cinzel', serif", fontSize: 14,
+            letterSpacing: "0.08em", color: "var(--text-primary)", marginTop: 18,
+          }}>{service.name}</div>
+          <p style={{
+            fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic",
+            fontSize: 14, lineHeight: 1.6, color: "var(--text-muted)", marginTop: 8,
+          }}>{service.desc}</p>
+        </div>
+
+        {/* Layer 5: Hover content */}
+        <div style={{
+          position: "absolute", inset: 0, zIndex: 6,
+          padding: "32px 28px",
+          display: "flex", flexDirection: "column", justifyContent: "flex-end",
+          opacity: isHovered ? 1 : 0,
+          transform: isHovered ? "translateY(0)" : "translateY(12px)",
+          transition: "opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s",
+        }}>
+          <div style={{
+            width: isHovered ? 48 : 0, height: 1,
+            background: "var(--gold)", marginBottom: 16,
+            transition: "width 0.4s ease 0.2s",
+          }} />
+          <div style={{
+            fontFamily: "'Cinzel', serif", fontSize: 18,
+            letterSpacing: "0.1em", color: "white", marginBottom: 8,
+          }}>{service.name}</div>
+          <p style={{
+            fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic",
+            fontSize: 15, lineHeight: 1.65, color: "rgba(250,246,240,0.82)", marginBottom: 20,
+          }}>{service.desc}</p>
+          <EnquireNowRow />
         </div>
       </div>
     </motion.div>
   );
 };
 
+const EnquireNowRow = () => {
+  const [arrHovered, setArrHovered] = useState(false);
+  return (
+    <div
+      style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}
+      onMouseEnter={() => setArrHovered(true)}
+      onMouseLeave={() => setArrHovered(false)}
+    >
+      <span style={{ fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.2em", color: "var(--gold)" }}>Enquire Now</span>
+      <span style={{
+        fontFamily: "'Cinzel', serif", fontSize: 11, color: "var(--gold)",
+        display: "inline-block", transition: "transform 0.3s ease",
+        transform: arrHovered ? "translateX(5px)" : "translateX(0)",
+      }}>→</span>
+    </div>
+  );
+};
+
+const ProcessStrip = () => (
+  <div style={{ background: "var(--crimson)", width: "100%", padding: "72px 5%", position: "relative", overflow: "hidden" }}>
+    {/* Texture overlay */}
+    <div style={{
+      position: "absolute", inset: 0, pointerEvents: "none",
+      backgroundImage: "repeating-linear-gradient(45deg, rgba(250,246,240,0.03) 0px, rgba(250,246,240,0.03) 1px, transparent 1px, transparent 12px)",
+    }} />
+
+    {/* Header */}
+    <div style={{ textAlign: "center", marginBottom: 56, position: "relative" }}>
+      <motion.span
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={viewport}
+        transition={{ duration: 0.5 }}
+        style={{ display: "block", fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.4em", color: "rgba(201,146,42,0.9)" }}
+      >THE ALHADA PROCESS</motion.span>
+      <motion.span
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={viewport}
+        transition={{ duration: 0.5, delay: 0.15 }}
+        style={{ display: "block", fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: 32, color: "rgba(250,246,240,0.9)", marginTop: 12 }}
+      >From Vision to Celebration</motion.span>
+    </div>
+
+    {/* Steps grid */}
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: "1fr auto 1fr auto 1fr auto 1fr",
+      alignItems: "center",
+      maxWidth: 1000, margin: "0 auto", gap: 0, position: "relative",
+    }}>
+      {processSteps.map((step, i) => {
+        const StepIcon = step.icon;
+        const isLast = i === processSteps.length - 1;
+        return (
+          <>
+            <motion.div
+              key={step.num}
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.12 }}
+              style={{ textAlign: "center", padding: "0 16px" }}
+            >
+              <span style={{
+                fontFamily: "'Cinzel', serif", fontSize: 42, color: "rgba(250,246,240,0.08)",
+                lineHeight: 1, display: "block", marginBottom: -12,
+              }}>{step.num}</span>
+              <div style={{
+                width: 52, height: 52,
+                border: "1px solid rgba(201,146,42,0.4)", borderRadius: "50%",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                margin: "0 auto 16px auto", background: "rgba(201,146,42,0.08)",
+              }}>
+                <StepIcon size={20} color="var(--gold)" />
+              </div>
+              <span style={{
+                fontFamily: "'Cinzel', serif", fontSize: 13, letterSpacing: "0.2em",
+                color: "rgba(250,246,240,0.95)", marginBottom: 10, display: "block",
+              }}>{step.title}</span>
+              <p style={{
+                fontFamily: "'Cormorant Garamond', serif", fontSize: 14, lineHeight: 1.6,
+                color: "rgba(250,246,240,0.6)", maxWidth: 160, margin: "0 auto",
+              }}>{step.desc}</p>
+            </motion.div>
+            {!isLast && (
+              <div key={`conn-${i}`} style={{ height: 1, width: "100%", background: "linear-gradient(to right, rgba(201,146,42,0.15), rgba(201,146,42,0.5), rgba(201,146,42,0.15))", position: "relative" }}>
+                <span style={{
+                  position: "absolute", top: "50%", left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  fontSize: 10, color: "rgba(201,146,42,0.6)",
+                  background: "var(--crimson)", padding: "0 4px",
+                }}>✦</span>
+              </div>
+            )}
+          </>
+        );
+      })}
+    </div>
+  </div>
+);
+
 const ServicesSection = () => {
   const [ctaHovered, setCtaHovered] = useState(false);
 
   return (
-    <section style={{ background: "var(--cream)", padding: "0 0 110px 0", position: "relative" }}>
+    <section style={{ background: "var(--cream)", padding: "100px 0 0 0", position: "relative", overflow: "hidden" }}>
       {/* Top decorative band */}
       <div style={{
-        width: "100%", height: 20,
+        position: "absolute", top: 0, left: 0, width: "100%", height: 20,
         background: "repeating-linear-gradient(90deg, transparent 0px, transparent 10px, rgba(201,146,42,0.3) 10px, rgba(201,146,42,0.3) 11px)",
         borderTop: "1px solid rgba(139,26,46,0.15)",
         borderBottom: "1px solid rgba(201,146,42,0.2)",
       }} />
 
-      <div style={{ paddingTop: 100 }}>
+      <div style={{ paddingTop: 20 }}>
         {/* Section Header */}
         <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center", paddingBottom: 72 }}>
           <motion.div
@@ -168,7 +311,7 @@ const ServicesSection = () => {
         {/* Services Grid */}
         <div style={{
           maxWidth: 1200, margin: "0 auto", padding: "0 5%",
-          display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24,
+          display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20,
         }}>
           {services.map((s, i) => (
             <ServiceCard key={s.index} service={s} index={i} />
@@ -176,7 +319,7 @@ const ServicesSection = () => {
         </div>
 
         {/* Section Footer CTA */}
-        <div style={{ textAlign: "center", marginTop: 64 }}>
+        <div style={{ textAlign: "center", marginTop: 64, marginBottom: 80 }}>
           <div style={{ width: 80, height: 1, background: "var(--gold)", margin: "0 auto 32px auto" }} />
           <motion.span
             initial={{ opacity: 0, y: 15 }}
@@ -201,6 +344,9 @@ const ServicesSection = () => {
           >Tell Us About Your Event →</button>
         </div>
       </div>
+
+      {/* Process Strip */}
+      <ProcessStrip />
     </section>
   );
 };

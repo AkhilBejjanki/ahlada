@@ -217,7 +217,7 @@ const ScrollytellingServices = () => {
                 >
                   <span style={{
                     fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic",
-                    fontSize: 52, color: "var(--text-primary)", lineHeight: 1.15,
+                    fontSize: 60, color: "var(--text-primary)", lineHeight: 1.1,
                     display: "block", maxWidth: 380,
                   }}>{current.name}</span>
                 </motion.div>

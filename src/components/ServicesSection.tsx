@@ -169,7 +169,7 @@ const ScrollytellingServices = () => {
             </AnimatePresence>
 
             {/* Content */}
-            <div style={{ position: "relative", zIndex: 1 }}>
+            <div style={{ position: "relative", zIndex: 1, marginTop: 0, alignSelf: "center" }}>
               {/* Eyebrow */}
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
                 <span style={{ color: "var(--gold)", fontSize: 10 }}>✦</span>

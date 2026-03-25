@@ -374,14 +374,13 @@ const ScrollytellingServices = () => {
                   style={{ marginTop: 8 }}
                 >
                   <span
+                    className="scrolly-service-name"
                     style={{
                       fontFamily: "'Cormorant Garamond', serif",
                       fontStyle: "italic",
-                      fontSize: 60,
                       color: "var(--text-primary)",
                       lineHeight: 1.1,
                       display: "block",
-                      maxWidth: 380,
                     }}
                   >
                     {current.name}

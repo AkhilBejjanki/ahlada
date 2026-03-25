@@ -45,14 +45,15 @@ const CountUp = ({ value, suffix }: { value: number; suffix: string }) => {
 
   return (
     <div ref={ref} style={{ lineHeight: 1 }}>
-      <span style={{ fontFamily: "'Cinzel', serif", fontSize: 88, fontWeight: 700, color: "var(--gold)", letterSpacing: "-0.02em" }}>
+      <span className="stats-number" style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, color: "var(--gold)", letterSpacing: "-0.02em" }}>
         {current.toLocaleString()}
       </span>
       <motion.span
         initial={{ opacity: 0, scale: 0.5 }}
         animate={done ? { opacity: 1, scale: 1 } : {}}
         transition={{ type: "spring", stiffness: 300 }}
-        style={{ fontFamily: "'Cinzel', serif", fontSize: 56, fontWeight: 700, color: "var(--gold)" }}
+        className="stats-suffix"
+        style={{ fontFamily: "'Cinzel', serif", fontWeight: 700, color: "var(--gold)" }}
       >
         {suffix}
       </motion.span>
@@ -85,14 +86,15 @@ const StatsSection = () => (
 
     {/* Content */}
     <div style={{ position: "relative", zIndex: 1 }}>
-      <div style={{ padding: "96px 5% 0 5%" }}>
+      <div className="stats-content-area">
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewport}
           transition={{ duration: 0.5 }}
-          style={{ textAlign: "center", marginBottom: 64 }}
+          className="stats-eyebrow"
+          style={{ textAlign: "center" }}
         >
           <span style={{ fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.45em", color: "rgba(201,146,42,0.85)" }}>
             ✦ THE AHLADA DIFFERENCE ✦
@@ -100,23 +102,16 @@ const StatsSection = () => (
         </motion.div>
 
         {/* Stats grid */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1px 1fr 1px 1fr 1px 1fr",
-          alignItems: "center",
-          maxWidth: 1100,
-          margin: "0 auto",
-          gap: 0,
-        }}>
+        <div className="stats-grid">
           {stats.map((s, i) => (
-            <>
+            <div key={s.label} className="stats-grid-item">
               <motion.div
-                key={s.label}
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={viewport}
                 transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.1 }}
-                style={{ textAlign: "center", padding: "0 40px" }}
+                className="stats-block"
+                style={{ textAlign: "center" }}
               >
                 <CountUp value={s.value} suffix={s.suffix} />
                 <motion.div
@@ -126,22 +121,21 @@ const StatsSection = () => (
                   transition={{ duration: 0.6, delay: i * 0.1 + 0.3 }}
                   style={{ width: 48, height: 1, background: "var(--gold)", margin: "20px auto", transformOrigin: "center" }}
                 />
-                <span style={{ fontFamily: "'Cinzel', serif", fontSize: 12, letterSpacing: "0.3em", color: "rgba(250,246,240,0.82)", textTransform: "uppercase" }}>
+                <span className="stats-label" style={{ fontFamily: "'Cinzel', serif", letterSpacing: "0.3em", color: "rgba(250,246,240,0.82)", textTransform: "uppercase" }}>
                   {s.label}
                 </span>
               </motion.div>
               {i < 3 && (
-                <div key={`sep-${i}`} style={{
-                  width: 1, height: 80, alignSelf: "center", justifySelf: "center",
+                <div className="stats-separator" style={{
                   background: "linear-gradient(to bottom, transparent, rgba(201,146,42,0.4), transparent)",
                 }} />
               )}
-            </>
+            </div>
           ))}
         </div>
 
         {/* Pull quote */}
-        <div style={{ textAlign: "center", marginTop: 72, padding: "0 5%" }}>
+        <div className="stats-quote-area" style={{ textAlign: "center" }}>
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -155,13 +149,14 @@ const StatsSection = () => (
           </motion.div>
 
           <motion.p
+            className="stats-quote-text"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={viewport}
             transition={{ delay: 0.5, duration: 0.7 }}
             style={{
               marginTop: 28, fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic",
-              fontSize: 32, color: "rgba(250,246,240,0.92)", lineHeight: 1.65,
+              color: "rgba(250,246,240,0.92)", lineHeight: 1.65,
               maxWidth: 600, marginLeft: "auto", marginRight: "auto",
             }}
           >
@@ -179,18 +174,16 @@ const StatsSection = () => (
       </div>
 
       {/* Bottom CTA strip */}
-      <div style={{
-        marginTop: 80, background: "rgba(0,0,0,0.22)", padding: "32px 7%",
-        display: "flex", justifyContent: "space-between", alignItems: "center",
-      }}>
-        <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: 20, color: "rgba(250,246,240,0.78)" }}>
+      <div className="stats-cta-strip">
+        <span className="stats-cta-text" style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", color: "rgba(250,246,240,0.78)" }}>
           Ready to create something extraordinary?
         </span>
         <button
+          className="stats-cta-button"
           style={{
             fontFamily: "'Cinzel', serif", fontSize: 12, letterSpacing: "0.15em",
             border: "1.5px solid rgba(201,146,42,0.8)", color: "var(--gold)",
-            background: "transparent", padding: "14px 36px", borderRadius: 0, cursor: "pointer",
+            background: "transparent", borderRadius: 0, cursor: "pointer",
             transition: "all 0.3s ease",
           }}
           onMouseEnter={e => {
@@ -214,6 +207,115 @@ const StatsSection = () => (
         </button>
       </div>
     </div>
+
+    <style>{`
+      .stats-content-area {
+        padding: 96px 5% 0 5%;
+      }
+      .stats-eyebrow {
+        margin-bottom: 64px;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        gap: 0;
+      }
+      .stats-grid-item {
+        display: contents;
+      }
+      .stats-block {
+        padding: 0 40px;
+      }
+      .stats-separator {
+        width: 1px;
+        height: 80px;
+        align-self: center;
+        justify-self: center;
+      }
+      .stats-number {
+        font-size: 88px;
+      }
+      .stats-suffix {
+        font-size: 56px;
+      }
+      .stats-label {
+        font-size: 12px;
+      }
+      .stats-quote-area {
+        margin-top: 72px;
+        padding: 0 5%;
+      }
+      .stats-quote-text {
+        font-size: 32px;
+      }
+      .stats-cta-strip {
+        margin-top: 80px;
+        background: rgba(0,0,0,0.22);
+        padding: 32px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .stats-cta-text {
+        font-size: 20px;
+      }
+      .stats-cta-button {
+        padding: 14px 36px;
+      }
+
+      @media (max-width: 768px) {
+        .stats-content-area {
+          padding: 56px 5% 0 5% !important;
+        }
+        .stats-eyebrow {
+          margin-bottom: 40px !important;
+        }
+        .stats-grid {
+          grid-template-columns: 1fr 1fr !important;
+          gap: 32px 0 !important;
+        }
+        .stats-separator {
+          display: none !important;
+        }
+        .stats-block {
+          padding: 0 16px !important;
+        }
+        .stats-number {
+          font-size: 48px !important;
+        }
+        .stats-suffix {
+          font-size: 32px !important;
+        }
+        .stats-label {
+          font-size: 10px !important;
+          letter-spacing: 0.15em !important;
+        }
+        .stats-quote-area {
+          margin-top: 48px !important;
+          padding: 0 4% !important;
+        }
+        .stats-quote-text {
+          font-size: 22px !important;
+        }
+        .stats-cta-strip {
+          margin-top: 48px !important;
+          flex-direction: column !important;
+          gap: 20px !important;
+          text-align: center !important;
+          padding: 28px 6% !important;
+        }
+        .stats-cta-text {
+          font-size: 17px !important;
+        }
+        .stats-cta-button {
+          padding: 12px 28px !important;
+          width: 100%;
+        }
+      }
+    `}</style>
   </section>
 );
 

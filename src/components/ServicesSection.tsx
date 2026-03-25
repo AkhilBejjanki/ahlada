@@ -173,6 +173,7 @@ const EnquireLink = ({ activeIndex }: { activeIndex: number }) => {
 /* ━━━ Progress Indicator (inside left panel) ━━━ */
 const ProgressIndicator = ({ activeIndex }: { activeIndex: number }) => (
   <div
+    className="scrolly-progress-indicator"
     style={{
       position: "absolute",
       left: 20,
@@ -247,8 +248,9 @@ const ScrollytellingServices = () => {
 
   return (
     <>
-      <div ref={outerRef} style={{ position: "relative", height: "calc(100vh * 10)" }}>
+      <div ref={outerRef} className="scrolly-outer" style={{ position: "relative" }}>
         <div
+          className="scrolly-sticky"
           style={{
             position: "sticky",
             top: 0,
@@ -262,16 +264,15 @@ const ScrollytellingServices = () => {
         >
           {/* ━━━ LEFT PANEL ━━━ */}
           <div
+            className="scrolly-left-panel"
             style={{
               background: "var(--cream)",
               position: "relative",
-              width: "42%",
               height: "100vh",
               overflow: "hidden",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              padding: "0 6% 0 7%",
               border: "none",
               boxShadow: "none",
               outline: "none",
@@ -374,14 +375,13 @@ const ScrollytellingServices = () => {
                   style={{ marginTop: 8 }}
                 >
                   <span
+                    className="scrolly-service-name"
                     style={{
                       fontFamily: "'Cormorant Garamond', serif",
                       fontStyle: "italic",
-                      fontSize: 60,
                       color: "var(--text-primary)",
                       lineHeight: 1.1,
                       display: "block",
-                      maxWidth: 380,
                     }}
                   >
                     {current.name}
@@ -460,7 +460,7 @@ const ScrollytellingServices = () => {
           </div>
 
           {/* ━━━ RIGHT PANEL ━━━ */}
-          <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "58%", overflow: "hidden", background: "#1a0505" }}>
+          <div className="scrolly-right-panel" style={{ position: "absolute", top: 0, bottom: 0, right: 0, overflow: "hidden", background: "#1a0505" }}>
             {/* All images stacked */}
             {services.map((s, i) => (
               <div
@@ -584,7 +584,7 @@ const ProcessStrip = () => (
           color: "rgba(201,146,42,0.9)",
         }}
       >
-        THE ALHADA PROCESS
+        THE AHLADA PROCESS
       </motion.span>
       <motion.span
         initial={{ opacity: 0, y: 20 }}
@@ -606,9 +606,9 @@ const ProcessStrip = () => (
 
     {/* Steps grid */}
     <div
+      className="process-steps-grid"
       style={{
         display: "grid",
-        gridTemplateColumns: "1fr auto 1fr auto 1fr auto 1fr",
         alignItems: "center",
         maxWidth: 1000,
         margin: "0 auto",
@@ -679,6 +679,7 @@ const ProcessStrip = () => (
             {!isLast && (
               <div
                 key={`conn-${i}`}
+                className="process-connector"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -725,6 +726,61 @@ const ServicesSection = () => (
       @keyframes scrollHintBounce {
         0% { transform: translateY(-8px); }
         100% { transform: translateY(8px); }
+      }
+      .scrolly-outer {
+        height: calc(100vh * 10);
+      }
+      .scrolly-left-panel {
+        width: 42%;
+        padding: 0 6% 0 7%;
+      }
+      .scrolly-right-panel {
+        width: 58%;
+      }
+      .scrolly-service-name {
+        font-size: 60px;
+        max-width: 380px;
+      }
+      .process-steps-grid {
+        grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      }
+
+      @media (max-width: 768px) {
+        .scrolly-outer {
+          height: calc(100vh * 6) !important;
+        }
+        .scrolly-sticky {
+          flex-direction: column !important;
+        }
+        .scrolly-left-panel {
+          width: 100% !important;
+          height: 50vh !important;
+          padding: 60px 6% 20px 6% !important;
+          order: 2;
+        }
+        .scrolly-right-panel {
+          position: relative !important;
+          width: 100% !important;
+          height: 50vh !important;
+          order: 1;
+        }
+        .scrolly-service-name {
+          font-size: 32px !important;
+          max-width: 100% !important;
+        }
+        .process-steps-grid {
+          grid-template-columns: 1fr 1fr !important;
+          gap: 28px !important;
+        }
+        .process-connector {
+          display: none !important;
+        }
+        .scrolly-progress-indicator {
+          display: none !important;
+        }
+        .scrolly-left-panel .scrolly-scroll-hint {
+          display: none !important;
+        }
       }
     `}</style>
     <ScrollytellingServices />

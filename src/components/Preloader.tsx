@@ -9,7 +9,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
   const [step, setStep] = useState(0);
   const [visible, setVisible] = useState(true);
 
-  const brandText = "ALHADA EVENTS";
+  const brandText = "AHLADA EVENTS";
   const tagline = "Turning Your Emotions Into Celebrations";
 
   useEffect(() => {
@@ -108,7 +108,7 @@ const Preloader = ({ onComplete }: PreloaderProps) => {
                 </motion.div>
               )}
 
-              {/* "ALHADA EVENTS" letter by letter */}
+              {/* "AHLADA EVENTS" letter by letter */}
               {step >= 3 && (
                 <div
                   style={{

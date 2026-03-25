@@ -247,8 +247,9 @@ const ScrollytellingServices = () => {
 
   return (
     <>
-      <div ref={outerRef} style={{ position: "relative", height: "calc(100vh * 10)" }}>
+      <div ref={outerRef} className="scrolly-outer" style={{ position: "relative" }}>
         <div
+          className="scrolly-sticky"
           style={{
             position: "sticky",
             top: 0,

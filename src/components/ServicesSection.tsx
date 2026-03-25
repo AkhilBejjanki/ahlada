@@ -605,9 +605,9 @@ const ProcessStrip = () => (
 
     {/* Steps grid */}
     <div
+      className="process-steps-grid"
       style={{
         display: "grid",
-        gridTemplateColumns: "1fr auto 1fr auto 1fr auto 1fr",
         alignItems: "center",
         maxWidth: 1000,
         margin: "0 auto",
@@ -678,6 +678,7 @@ const ProcessStrip = () => (
             {!isLast && (
               <div
                 key={`conn-${i}`}
+                className="process-connector"
                 style={{
                   display: "flex",
                   alignItems: "center",

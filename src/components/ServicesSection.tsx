@@ -775,6 +775,12 @@ const ServicesSection = () => (
         .process-connector {
           display: none !important;
         }
+        .scrolly-progress-indicator {
+          display: none !important;
+        }
+        .scrolly-left-panel .scrolly-scroll-hint {
+          display: none !important;
+        }
       }
     `}</style>
     <ScrollytellingServices />

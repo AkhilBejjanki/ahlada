@@ -95,7 +95,7 @@ const StatsSection = () => (
           style={{ textAlign: "center", marginBottom: 64 }}
         >
           <span style={{ fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.45em", color: "rgba(201,146,42,0.85)" }}>
-            ✦ THE ALHADA DIFFERENCE ✦
+            ✦ THE AHLADA DIFFERENCE ✦
           </span>
         </motion.div>
 

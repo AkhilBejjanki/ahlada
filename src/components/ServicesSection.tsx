@@ -584,7 +584,7 @@ const ProcessStrip = () => (
           color: "rgba(201,146,42,0.9)",
         }}
       >
-        THE ALHADA PROCESS
+        THE AHLADA PROCESS
       </motion.span>
       <motion.span
         initial={{ opacity: 0, y: 20 }}

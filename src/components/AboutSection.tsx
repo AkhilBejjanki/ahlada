@@ -148,7 +148,7 @@ const AboutSection = () => (
             transition={{ duration: 0.5 }}
             style={{ fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.4em", color: "var(--gold)", display: "block" }}
           >
-            ABOUT ALHADA EVENTS
+            ABOUT AHLADA EVENTS
           </motion.span>
 
           <div style={{ marginTop: 20, marginBottom: 28 }}>
@@ -169,7 +169,7 @@ const AboutSection = () => (
 
           <div style={{ marginTop: 0, display: "flex", flexDirection: "column", gap: 20 }}>
             {[
-              "Alhada Events was born with one belief — that every celebration deserves to be extraordinary. Founded in Hyderabad with deep Telugu roots, we bring together traditional elegance and modern creativity in every event we touch.",
+              "Ahlada Events was born with one belief — that every celebration deserves to be extraordinary. Founded in Hyderabad with deep Telugu roots, we bring together traditional elegance and modern creativity in every event we touch.",
               "From the first consultation to the final farewell, we are with you at every step. Our team of passionate designers, decorators, and coordinators treat your event as their own — because for us, this is not just work. This is love.",
             ].map((p, i) => (
               <motion.p

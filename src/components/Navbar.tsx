@@ -63,7 +63,7 @@ const Navbar = () => {
                 fontWeight: 600,
               }}
             >
-              LHADA
+              HLADA
             </span>
           </div>
           <span

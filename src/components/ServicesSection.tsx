@@ -173,6 +173,7 @@ const EnquireLink = ({ activeIndex }: { activeIndex: number }) => {
 /* ━━━ Progress Indicator (inside left panel) ━━━ */
 const ProgressIndicator = ({ activeIndex }: { activeIndex: number }) => (
   <div
+    className="scrolly-progress-indicator"
     style={{
       position: "absolute",
       left: 20,

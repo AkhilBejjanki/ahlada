@@ -726,6 +726,55 @@ const ServicesSection = () => (
         0% { transform: translateY(-8px); }
         100% { transform: translateY(8px); }
       }
+      .scrolly-outer {
+        height: calc(100vh * 10);
+      }
+      .scrolly-left-panel {
+        width: 42%;
+        padding: 0 6% 0 7%;
+      }
+      .scrolly-right-panel {
+        width: 58%;
+      }
+      .scrolly-service-name {
+        font-size: 60px;
+        max-width: 380px;
+      }
+      .process-steps-grid {
+        grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      }
+
+      @media (max-width: 768px) {
+        .scrolly-outer {
+          height: calc(100vh * 6) !important;
+        }
+        .scrolly-sticky {
+          flex-direction: column !important;
+        }
+        .scrolly-left-panel {
+          width: 100% !important;
+          height: 50vh !important;
+          padding: 60px 6% 20px 6% !important;
+          order: 2;
+        }
+        .scrolly-right-panel {
+          position: relative !important;
+          width: 100% !important;
+          height: 50vh !important;
+          order: 1;
+        }
+        .scrolly-service-name {
+          font-size: 32px !important;
+          max-width: 100% !important;
+        }
+        .process-steps-grid {
+          grid-template-columns: 1fr 1fr !important;
+          gap: 28px !important;
+        }
+        .process-connector {
+          display: none !important;
+        }
+      }
     `}</style>
     <ScrollytellingServices />
     <ProcessStrip />

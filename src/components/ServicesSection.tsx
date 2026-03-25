@@ -263,16 +263,15 @@ const ScrollytellingServices = () => {
         >
           {/* ━━━ LEFT PANEL ━━━ */}
           <div
+            className="scrolly-left-panel"
             style={{
               background: "var(--cream)",
               position: "relative",
-              width: "42%",
               height: "100vh",
               overflow: "hidden",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              padding: "0 6% 0 7%",
               border: "none",
               boxShadow: "none",
               outline: "none",
@@ -461,7 +460,7 @@ const ScrollytellingServices = () => {
           </div>
 
           {/* ━━━ RIGHT PANEL ━━━ */}
-          <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "58%", overflow: "hidden", background: "#1a0505" }}>
+          <div className="scrolly-right-panel" style={{ position: "absolute", top: 0, bottom: 0, right: 0, overflow: "hidden", background: "#1a0505" }}>
             {/* All images stacked */}
             {services.map((s, i) => (
               <div

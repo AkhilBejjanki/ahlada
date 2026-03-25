@@ -24,6 +24,7 @@ const Index = () => {
         <HeroSection />
         <MarqueeTrustBar />
         <AboutSection />
+        <AboutToServicesDivider />
         <ServicesSection />
         <StatsSection />
       </main>

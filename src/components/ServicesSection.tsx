@@ -493,8 +493,9 @@ const ScrollytellingServices = () => {
               </div>
             ))}
 
-            {/* Vignette overlay */}
+            {/* Vignette overlay - desktop: left fade, mobile: bottom fade */}
             <div
+              className="scrolly-vignette"
               style={{
                 position: "absolute",
                 inset: 0,
@@ -754,19 +755,22 @@ const ServicesSection = () => (
         }
         .scrolly-left-panel {
           width: 100% !important;
-          height: 50vh !important;
-          padding: 60px 6% 20px 6% !important;
+          height: 45vh !important;
+          padding: 20px 6% 16px 6% !important;
           order: 2;
         }
         .scrolly-right-panel {
           position: relative !important;
           width: 100% !important;
-          height: 50vh !important;
+          height: 55vh !important;
           order: 1;
         }
         .scrolly-service-name {
           font-size: 32px !important;
           max-width: 100% !important;
+        }
+        .scrolly-vignette {
+          background: linear-gradient(to bottom, transparent 60%, rgba(250,246,240,0.4) 80%, rgba(250,246,240,0.85) 95%, #FAF6F0 100%) !important;
         }
         .process-steps-grid {
           grid-template-columns: 1fr 1fr !important;

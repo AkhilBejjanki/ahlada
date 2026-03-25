@@ -7,6 +7,7 @@ import MarqueeTrustBar from "@/components/MarqueeTrustBar";
 import AboutSection from "@/components/AboutSection";
 import AboutToServicesDivider from "@/components/AboutToServicesDivider";
 import ServicesSection from "@/components/ServicesSection";
+import ServicesToStatsDivider from "@/components/ServicesToStatsDivider";
 import StatsSection from "@/components/StatsSection";
 
 const Index = () => {

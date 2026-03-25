@@ -27,6 +27,7 @@ const Index = () => {
         <AboutSection />
         <AboutToServicesDivider />
         <ServicesSection />
+        <ServicesToStatsDivider />
         <StatsSection />
       </main>
     </>

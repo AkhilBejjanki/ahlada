@@ -9,6 +9,11 @@ import AboutToServicesDivider from "@/components/AboutToServicesDivider";
 import ServicesSection from "@/components/ServicesSection";
 import ServicesToStatsDivider from "@/components/ServicesToStatsDivider";
 import StatsSection from "@/components/StatsSection";
+import GallerySection from "@/components/GallerySection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,7 +34,12 @@ const Index = () => {
         <ServicesSection />
         <ServicesToStatsDivider />
         <StatsSection />
+        <GallerySection />
+        <TestimonialsSection />
+        <ContactSection />
       </main>
+      <Footer />
+      <FloatingWhatsApp />
     </>
   );
 };

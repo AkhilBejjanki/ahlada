@@ -7,10 +7,10 @@ const FloatingWhatsApp = () => {
   return (
     <>
       <button
-        onClick={() => window.open("https://wa.me/919876543210", "_blank")}
+        onClick={() => window.open("https://wa.me/919381384834", "_blank")}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        aria-label="Chat with us on WhatsApp"
+        aria-label="Chat on WhatsApp"
         style={{
           position: "fixed",
           bottom: 28,
@@ -19,7 +19,7 @@ const FloatingWhatsApp = () => {
           width: 56,
           height: 56,
           borderRadius: "50%",
-          background: "#25D366",
+          background: hovered ? "var(--gold)" : "var(--crimson)",
           border: "none",
           display: "flex",
           alignItems: "center",
@@ -27,10 +27,10 @@ const FloatingWhatsApp = () => {
           cursor: "pointer",
           animation: "fwaPulse 2.5s ease-in-out infinite",
           transform: hovered ? "scale(1.1)" : "scale(1)",
-          transition: "transform 0.2s ease",
+          transition: "transform 0.2s ease, background 0.3s ease",
         }}
       >
-        <MessageCircle size={24} color="white" />
+        <MessageCircle size={24} color={hovered ? "var(--crimson)" : "var(--gold)"} />
         <span style={{
           position: "absolute",
           right: 68,
@@ -47,17 +47,17 @@ const FloatingWhatsApp = () => {
           transition: "opacity 0.25s ease",
           pointerEvents: "none",
         }}>
-          Chat with us
+          Chat on WhatsApp
         </span>
       </button>
 
       <style>{`
         @keyframes fwaPulse {
-          0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
-          50% { box-shadow: 0 4px 32px rgba(37,211,102,0.7); }
+          0%, 100% { box-shadow: 0 4px 20px rgba(139,26,46,0.4); }
+          50% { box-shadow: 0 4px 32px rgba(201,146,42,0.5); }
         }
         @media (max-width: 640px) {
-          button[aria-label="Chat with us on WhatsApp"] {
+          button[aria-label="Chat on WhatsApp"] {
             bottom: 20px !important;
             right: 20px !important;
             width: 52px !important;

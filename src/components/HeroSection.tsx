@@ -354,18 +354,18 @@ const HeroSection = () => {
             overflow: "hidden",
           }}
         >
-          <span
+          {/* Hero Image */}
+          <img
+            src="/images/hero.jpeg"
+            alt="Hero Event"
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "18px",
-              color: "rgba(250,246,240,0.4)",
-              fontStyle: "italic",
-              position: "relative",
-              zIndex: 1,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+              display: "block",
             }}
-          >
-            [ Hero Image / Video ]
-          </span>
+          />
 
           {/* Floating badge */}
           <div

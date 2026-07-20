@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 const viewport = { once: true, margin: "-80px" as const };
 
 const stats = [
-  { value: 500, suffix: "+", label: "Events Crafted" },
-  { value: 8, suffix: "+", label: "Years of Excellence" },
+  { value: 150, suffix: "+", label: "Events Crafted" },
+  { value: 2, suffix: "+", label: "Years of Excellence" },
   { value: 100, suffix: "%", label: "Client Satisfaction" },
-  { value: 10000, suffix: "+", label: "Memories Created" },
+  { value: 500, suffix: "+", label: "Memories Created" },
 ];
 
 const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);

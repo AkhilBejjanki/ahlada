@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Mail, MapPin, MessageCircle, Instagram, Facebook, Youtube, ChevronDown, Check } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Instagram, ChevronDown, Check } from "lucide-react";
 
 const viewportHeader = { once: true, margin: "-80px" as const };
 
@@ -108,8 +108,8 @@ const ContactSection = () => {
             </div>
 
             {[
-              { icon: Phone, label: "CALL US", value: "+91 98765 43210" },
-              { icon: Mail, label: "EMAIL US", value: "hello@ahladaevents.com" },
+              { icon: Phone, label: "CALL US", value: "+91 93813 84834 · +91 91218 44469" },
+              { icon: Mail, label: "EMAIL US", value: "jaihanumaevents2025@gmail.com" },
               { icon: MapPin, label: "FIND US", value: "Hyderabad, Telangana, India" },
             ].map((c, i) => (
               <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 16, marginBottom: 28 }}>
@@ -118,7 +118,7 @@ const ContactSection = () => {
                   <div style={{ fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: "0.2em", color: "rgba(250,246,240,0.5)" }}>
                     {c.label}
                   </div>
-                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, color: "var(--cream)", marginTop: 4 }}>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 18, color: "var(--cream)", marginTop: 4, wordBreak: "break-word" }}>
                     {c.value}
                   </div>
                 </div>
@@ -127,60 +127,70 @@ const ContactSection = () => {
 
             {/* WhatsApp button */}
             <button
-              onClick={() => window.open("https://wa.me/919876543210", "_blank")}
+              onClick={() => window.open("https://wa.me/919381384834", "_blank")}
               style={{
                 marginTop: 40, width: "100%",
-                background: "#25D366", border: "none",
+                background: "transparent",
+                border: "1.5px solid var(--gold)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 gap: 10, padding: "16px 0", cursor: "pointer",
+                color: "var(--gold)",
                 transition: "all 0.3s ease",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget;
-                el.style.filter = "brightness(1.1)";
+                el.style.background = "var(--gold)";
+                el.style.color = "var(--crimson)";
+                el.querySelectorAll<HTMLElement>("[data-wa-icon], [data-wa-label]").forEach((c) => (c.style.color = "var(--crimson)"));
                 el.style.transform = "translateY(-2px)";
-                el.style.boxShadow = "0 8px 24px rgba(37,211,102,0.3)";
+                el.style.boxShadow = "0 8px 24px rgba(201,146,42,0.28)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget;
-                el.style.filter = "none";
+                el.style.background = "transparent";
+                el.style.color = "var(--gold)";
+                el.querySelectorAll<HTMLElement>("[data-wa-icon], [data-wa-label]").forEach((c) => (c.style.color = "var(--gold)"));
                 el.style.transform = "translateY(0)";
                 el.style.boxShadow = "none";
               }}
             >
-              <MessageCircle size={20} color="white" />
-              <span style={{ fontFamily: "'Cinzel', serif", fontSize: 13, color: "white", letterSpacing: "0.1em" }}>
+              <span data-wa-icon style={{ display: "inline-flex", color: "var(--gold)" }}>
+                <MessageCircle size={20} />
+              </span>
+              <span data-wa-label style={{ fontFamily: "'Cinzel', serif", fontSize: 13, color: "var(--gold)", letterSpacing: "0.1em" }}>
                 Chat on WhatsApp
               </span>
             </button>
 
             {/* Social row */}
             <div style={{ marginTop: 32, display: "flex", gap: 16 }}>
-              {[Instagram, Facebook, Youtube].map((Icon, i) => (
-                <button
-                  key={i}
-                  style={{
-                    width: 44, height: 44,
-                    border: "1px solid rgba(201,146,42,0.4)",
-                    background: "transparent",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    cursor: "pointer", transition: "all 0.3s ease",
-                    color: "var(--gold)",
-                  }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget;
-                    el.style.background = "var(--gold)";
-                    el.style.color = "var(--crimson)";
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget;
-                    el.style.background = "transparent";
-                    el.style.color = "var(--gold)";
-                  }}
-                >
-                  <Icon size={18} />
-                </button>
-              ))}
+              <a
+                href="https://www.instagram.com/ahlada.events?igsh=ZGF3c2R5ejJ4MXdt&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                style={{
+                  width: 44, height: 44,
+                  border: "1px solid rgba(201,146,42,0.4)",
+                  background: "transparent",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  cursor: "pointer", transition: "all 0.3s ease",
+                  color: "var(--gold)",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget;
+                  el.style.background = "var(--gold)";
+                  el.style.color = "var(--crimson)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget;
+                  el.style.background = "transparent";
+                  el.style.color = "var(--gold)";
+                }}
+              >
+                <Instagram size={18} />
+              </a>
             </div>
           </div>
 

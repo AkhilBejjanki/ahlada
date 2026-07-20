@@ -1,4 +1,4 @@
-import { Instagram, Facebook, Youtube } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 const LotusMini = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.5" opacity={0.6}>
@@ -9,9 +9,15 @@ const LotusMini = () => (
   </svg>
 );
 
-const FooterLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+const scrollToId = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
+const FooterLink = ({ id, children }: { id: string; children: React.ReactNode }) => (
   <a
-    href={href}
+    href={`#${id}`}
+    onClick={(e) => { e.preventDefault(); scrollToId(id); }}
     className="footer-link"
     style={{
       display: "block",
@@ -21,6 +27,7 @@ const FooterLink = ({ href, children }: { href: string; children: React.ReactNod
       textDecoration: "none",
       marginBottom: 10,
       transition: "all 0.2s ease",
+      cursor: "pointer",
     }}
     onMouseEnter={(e) => {
       const el = e.currentTarget;
@@ -46,6 +53,14 @@ const columnHeading: React.CSSProperties = {
   display: "block",
 };
 
+const quickLinks: { label: string; id: string }[] = [
+  { label: "Home", id: "home" },
+  { label: "About", id: "about" },
+  { label: "Services", id: "services" },
+  { label: "Portfolio", id: "portfolio" },
+  { label: "Contact", id: "contact" },
+];
+
 const Footer = () => (
   <footer className="footer-section" style={{
     background: "#4A0A16", color: "var(--cream)",
@@ -55,7 +70,7 @@ const Footer = () => (
       display: "grid", gap: 60, maxWidth: 1400, margin: "0 auto",
     }}>
       {/* Column 1 — Brand */}
-      <div>
+      <div className="footer-brand">
         <div style={{ marginBottom: 20 }}>
           <div style={{ fontFamily: "'Cinzel', serif", fontSize: 28, color: "var(--cream)", lineHeight: 1 }}>
             AHLADA
@@ -75,39 +90,39 @@ const Footer = () => (
           <LotusMini />
         </div>
         <div style={{ display: "flex", gap: 12 }}>
-          {[Instagram, Facebook, Youtube].map((Icon, i) => (
-            <a
-              key={i}
-              href="#"
-              style={{
-                width: 38, height: 38,
-                border: "1px solid rgba(201,146,42,0.35)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                color: "var(--gold)",
-                transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget;
-                el.style.background = "var(--gold)";
-                el.style.color = "#4A0A16";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget;
-                el.style.background = "transparent";
-                el.style.color = "var(--gold)";
-              }}
-            >
-              <Icon size={16} />
-            </a>
-          ))}
+          <a
+            href="https://www.instagram.com/ahlada.events?igsh=ZGF3c2R5ejJ4MXdt&utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            style={{
+              width: 38, height: 38,
+              border: "1px solid rgba(201,146,42,0.35)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              color: "var(--gold)",
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget;
+              el.style.background = "var(--gold)";
+              el.style.color = "#4A0A16";
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget;
+              el.style.background = "transparent";
+              el.style.color = "var(--gold)";
+            }}
+          >
+            <Instagram size={16} />
+          </a>
         </div>
       </div>
 
       {/* Column 2 — Quick Links */}
       <div>
         <span style={columnHeading}>QUICK LINKS</span>
-        {["Home", "About", "Services", "Portfolio", "Blog", "Contact"].map((l) => (
-          <FooterLink key={l} href={`#${l.toLowerCase()}`}>{l}</FooterLink>
+        {quickLinks.map((l) => (
+          <FooterLink key={l.id} id={l.id}>{l.label}</FooterLink>
         ))}
       </div>
 
@@ -115,7 +130,7 @@ const Footer = () => (
       <div>
         <span style={columnHeading}>OUR SERVICES</span>
         {["Birthday Parties", "Wedding Planning", "Engagements", "Baby Showers", "Theme Parties", "Housewarming", "Anniversary", "Festive Decor"].map((l) => (
-          <FooterLink key={l} href="#services">{l}</FooterLink>
+          <FooterLink key={l} id="services">{l}</FooterLink>
         ))}
       </div>
 
@@ -123,20 +138,32 @@ const Footer = () => (
       <div>
         <span style={columnHeading}>CONTACT US</span>
 
-        {[
-          { label: "PHONE", value: "+91 98765 43210" },
-          { label: "EMAIL", value: "hello@ahladaevents.com" },
-          { label: "LOCATION", value: "Hyderabad, Telangana" },
-        ].map((c) => (
-          <div key={c.label} style={{ marginBottom: 16 }}>
-            <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: "0.2em", color: "rgba(201,146,42,0.7)" }}>
-              {c.label}
-            </div>
-            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 15, color: "rgba(250,246,240,0.65)", lineHeight: 1.5, marginTop: 2 }}>
-              {c.value}
-            </div>
+        <div style={{ marginBottom: 16 }}>
+          <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: "0.2em", color: "rgba(201,146,42,0.7)" }}>
+            PHONE
           </div>
-        ))}
+          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 15, color: "rgba(250,246,240,0.65)", lineHeight: 1.5, marginTop: 2 }}>
+            +91 93813 84834<br />+91 91218 44469
+          </div>
+        </div>
+
+        <div style={{ marginBottom: 16 }}>
+          <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: "0.2em", color: "rgba(201,146,42,0.7)" }}>
+            EMAIL
+          </div>
+          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 15, color: "rgba(250,246,240,0.65)", lineHeight: 1.5, marginTop: 2, wordBreak: "break-all" }}>
+            jaihanumaevents2025@gmail.com
+          </div>
+        </div>
+
+        <div style={{ marginBottom: 16 }}>
+          <div style={{ fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: "0.2em", color: "rgba(201,146,42,0.7)" }}>
+            LOCATION
+          </div>
+          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 15, color: "rgba(250,246,240,0.65)", lineHeight: 1.5, marginTop: 2 }}>
+            Hyderabad, Telangana, India
+          </div>
+        </div>
 
         <div style={{
           marginTop: 20,
@@ -162,29 +189,22 @@ const Footer = () => (
       <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 13, color: "rgba(250,246,240,0.4)" }}>
         Made with ❤️ in Hyderabad
       </div>
-      <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 13, color: "rgba(250,246,240,0.4)" }}>
-        <a href="#" className="footer-legal">Privacy Policy</a>
-        <span style={{ margin: "0 8px" }}>·</span>
-        <a href="#" className="footer-legal">Terms of Service</a>
-      </div>
     </div>
 
     <style>{`
       .footer-grid {
         grid-template-columns: 2fr 1fr 1fr 1.5fr;
       }
-      .footer-legal {
-        color: rgba(250,246,240,0.4);
-        text-decoration: none;
-        transition: color 0.2s ease;
-      }
-      .footer-legal:hover { color: var(--gold); }
       @media (max-width: 900px) {
         .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 40px !important; }
+        .footer-brand { grid-column: 1 / -1 !important; text-align: center !important; }
+        .footer-brand p { margin-left: auto !important; margin-right: auto !important; }
+        .footer-brand > div:last-child { justify-content: center !important; }
       }
       @media (max-width: 560px) {
         .footer-section { padding: 56px 6% 0 6% !important; }
         .footer-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+        .footer-brand { text-align: center !important; }
         .footer-bottom { flex-direction: column !important; text-align: center !important; }
       }
     `}</style>

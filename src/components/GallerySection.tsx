@@ -167,7 +167,7 @@ const Lightbox = ({
 const GallerySection = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [ctaHover, setCtaHover] = useState(false);
+  
 
   const filtered = activeFilter === "all"
     ? galleryItems
@@ -299,27 +299,6 @@ const GallerySection = () => {
           </AnimatePresence>
         </div>
 
-        {/* Footer CTA */}
-        <div style={{ textAlign: "center", marginTop: 64, padding: "0 5%" }}>
-          <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: 22, color: "var(--text-muted)", marginBottom: 24 }}>
-            Want to see more of our work?
-          </p>
-          <button
-            onMouseEnter={() => setCtaHover(true)}
-            onMouseLeave={() => setCtaHover(false)}
-            style={{
-              fontFamily: "'Cinzel', serif", fontSize: 13, letterSpacing: "0.15em",
-              border: "1.5px solid var(--crimson)",
-              color: ctaHover ? "var(--cream)" : "var(--crimson)",
-              background: ctaHover ? "var(--crimson)" : "transparent",
-              padding: "16px 44px", borderRadius: 0, cursor: "pointer",
-              transition: "all 0.3s ease",
-              transform: ctaHover ? "translateY(-2px)" : "translateY(0)",
-            }}
-          >
-            View Full Portfolio →
-          </button>
-        </div>
       </div>
 
       <AnimatePresence>

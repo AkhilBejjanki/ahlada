@@ -301,8 +301,8 @@ const HeroSection = () => {
           }}
         >
           {[
-            { icon: <Star size={16} color="var(--gold)" />, text: "500+ Events" },
-            { icon: <Award size={16} color="var(--gold)" />, text: "8+ Years" },
+            { icon: <Star size={16} color="var(--gold)" />, text: "150+ Events" },
+            { icon: <Award size={16} color="var(--gold)" />, text: "2+ Years" },
             { icon: <Heart size={16} color="var(--gold)" />, text: "100% Satisfaction" },
           ].map((item, i) => (
             <div key={i} style={{ display: "flex", alignItems: "center", gap: "20px" }}>

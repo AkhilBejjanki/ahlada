@@ -1,4 +1,4 @@
-const content = "✦ 500+ Events Celebrated  ✦  8 Years of Excellence  ✦  Weddings · Birthdays · Corporates  ✦  Hyderabad & Beyond  ✦  Telugu Roots. Global Standards.  ";
+const content = "✦ 150+ Events Celebrated  ✦  2 Years of Excellence  ✦  Weddings · Birthdays · Corporates  ✦  Hyderabad & Beyond  ✦  Telugu Roots. Global Standards.  ";
 
 const MarqueeTrustBar = () => (
   <div

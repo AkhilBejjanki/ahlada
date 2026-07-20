@@ -9,9 +9,14 @@ const LotusMini = () => (
   </svg>
 );
 
+const HEADER_OFFSET = 88;
+
 const scrollToId = (id: string) => {
   const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (!el) return;
+
+  const top = Math.max(0, el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET);
+  window.scrollTo({ top, behavior: "smooth" });
 };
 
 const FooterLink = ({ id, children }: { id: string; children: React.ReactNode }) => (

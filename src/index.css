@@ -87,6 +87,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  .page-section-anchor {
+    scroll-margin-top: 104px;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cinzel', serif;
   }

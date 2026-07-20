@@ -10,9 +10,14 @@ const navLinks = [
   { label: "Contact", id: "contact" },
 ];
 
-const scrollToSection = (id: string) => {
+const HEADER_OFFSET = 88;
+
+const scrollToSection = (id: string, behavior: ScrollBehavior = "smooth") => {
   const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (!el) return;
+
+  const top = Math.max(0, el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET);
+  window.scrollTo({ top, behavior });
 };
 
 const Navbar = () => {
@@ -25,8 +30,23 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const scrollFromHash = () => {
+      const id = window.location.hash.replace("#", "");
+      if (id) {
+        requestAnimationFrame(() => scrollToSection(id, "auto"));
+      }
+    };
+
+    scrollFromHash();
+    window.addEventListener("hashchange", scrollFromHash);
+
+    return () => window.removeEventListener("hashchange", scrollFromHash);
+  }, []);
+
   const handleNav = (id: string) => {
     setMobileOpen(false);
+    window.history.pushState(null, "", `#${id}`);
     setTimeout(() => scrollToSection(id), 50);
   };
 

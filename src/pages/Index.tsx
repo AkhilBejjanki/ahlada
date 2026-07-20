@@ -27,16 +27,16 @@ const Index = () => {
 
       <Navbar />
       <main>
-        <div id="home"><HeroSection /></div>
+        <div id="home" className="page-section-anchor"><HeroSection /></div>
         <MarqueeTrustBar />
-        <div id="about"><AboutSection /></div>
+        <div id="about" className="page-section-anchor"><AboutSection /></div>
         <AboutToServicesDivider />
-        <div id="services"><ServicesSection /></div>
+        <div id="services" className="page-section-anchor"><ServicesSection /></div>
         <ServicesToStatsDivider />
         <StatsSection />
-        <div id="portfolio"><GallerySection /></div>
+        <div id="portfolio" className="page-section-anchor"><GallerySection /></div>
         <TestimonialsSection />
-        <div id="contact"><ContactSection /></div>
+        <div id="contact" className="page-section-anchor"><ContactSection /></div>
       </main>
       <Footer />
       <FloatingWhatsApp />
